@@ -400,6 +400,47 @@ def _dp_overlap(finding: str, value: str) -> bool:
     return bool(f and v and (f in v or v in f))
 
 
+def _run_detector_ui(nf, tfile, tvalue, tdtype):
+    """Manual-run controls + live scan for one resolved data point."""
+    default_det = nf.detector_for(tdtype)
+    # reset the detector choice to the row's default whenever the target changes
+    tgt = f"{tfile}|{tdtype}|{str(tvalue)[:40]}"
+    if st.session_state.get("_det_tgt") != tgt:
+        st.session_state["_det_tgt"] = tgt
+        st.session_state["det_choice"] = [default_det] if default_det else []
+    det_values = [d["value"] for d in nf.DETECTORS]
+    st.multiselect("Detector(s) to run", det_values, format_func=nf.label_for, key="det_choice")
+    conf = st.selectbox("Min confidence", nf.MIN_CONFIDENCE, key="det_conf")
+    st.caption(f"Most-relevant detector for `{tdtype}`: "
+               f"**{nf.label_for(default_det) if default_det else 'none — not integrated'}**. "
+               "Scans the carrier text in context (context affects detection).")
+    chosen = st.session_state.get("det_choice", [])
+    if st.button("▶ Run scan", key="det_run"):
+        if not chosen:
+            st.warning("Pick at least one detector.")
+            return
+        carrier = CARRIERS / tfile
+        text = carrier.read_text(encoding="utf-8", errors="replace") if carrier.exists() else str(tvalue)
+        try:
+            finds = nf.scan(text, chosen, conf)
+        except nf.ScanError as e:
+            st.error(f"scan failed (network?): {e}")
+            return
+        caught = sorted({f["detector_name"] for f in finds if _dp_overlap(f["finding"], tvalue)})
+        if caught:
+            st.success(f"This data point **was caught** by: {', '.join(caught)}")
+        else:
+            st.info("This data point was **not caught** by the selected detector(s) "
+                    "(evasive value, wrong detector, or correctly ignored near-miss).")
+        if finds:
+            st.dataframe(pd.DataFrame([{
+                "detector": f["detector_name"], "finding": str(f["finding"])[:60],
+                "confidence": f["confidence"], "start": f["start_index"], "end": f["end_index"],
+            } for f in finds]), width="stretch", hide_index=True)
+        else:
+            st.caption("No findings returned for the selected detector(s) on this carrier.")
+
+
 def render_detector_results():
     try:
         import nf_playground as nf
@@ -409,7 +450,8 @@ def render_detector_results():
     R = json.loads(rp.read_text()) if rp.exists() else None
 
     st.caption("Live Nightfall playground detection over the generated data — baked at generation "
-               "time by `scan.py`. Run any detector manually below.")
+               "time by `scan.py`. Select a row to run a detector against that data point.")
+    target = None   # (file, value, data_type)
     if R:
         s = R["summary"]
         c = st.columns(6)
@@ -421,16 +463,24 @@ def render_detector_results():
         rec, prec = s.get("recall_pct"), s.get("precision_quiet_pct")
         c[5].metric("Recall", f"{rec}%" if rec is not None else "—",
                     help=f"precision on near-misses: {prec}%" if prec is not None else None)
+
+        items = R["items"]
+        opts = ["(all)"] + sorted({it["status"] for it in items})
+        pick = st.selectbox("Filter by status", opts, key="det_status_filter")
+        filt = items if pick == "(all)" else [it for it in items if it["status"] == pick]
         view = pd.DataFrame([{
-            "status": DET_BADGE.get(it["status"], it["status"]), "_raw": it["status"],
+            "status": DET_BADGE.get(it["status"], it["status"]),
             "data_type": it["data_type"], "detector": it["detector"] or "—",
             "conf": it["confidence"] or "", "challenge": it["detection_challenge"],
             "file": it["file"], "value": str(it["value"])[:40],
-        } for it in R["items"]])
-        opts = ["(all)"] + sorted(view["_raw"].unique())
-        pick = st.selectbox("Filter by status", opts, key="det_status_filter")
-        show = view if pick == "(all)" else view[view["_raw"] == pick]
-        st.dataframe(show.drop(columns="_raw"), width="stretch", hide_index=True)
+        } for it in filt])
+        st.caption("↓ click a row to target it for a manual scan")
+        event = st.dataframe(view, width="stretch", hide_index=True,
+                             on_select="rerun", selection_mode="single-row", key="det_table")
+        rows = event.selection.rows if event and event.selection else []
+        if rows:
+            it = filt[rows[0]]
+            target = (it["file"], it["value"], it["data_type"])
         st.caption(f"scanned {R.get('scanned_at','')} · min confidence {R.get('min_confidence')} · {R.get('endpoint')}")
         if R.get("errors"):
             st.warning("scan errors: " + "; ".join(R["errors"]))
@@ -443,43 +493,21 @@ def render_detector_results():
     if nf is None:
         st.warning("Detector integration isn't bundled in this build (no `nf_playground`/`detectors.json`).")
         return
-    labels = [f"{r['file']} · {r['data_type']} · {str(r['value'])[:28]}" for _, r in df.iterrows()]
-    di = st.selectbox("Data point", range(len(df)), format_func=lambda i: labels[i], key="det_dp")
-    row = df.iloc[di]
-    default_det = nf.detector_for(row["data_type"])
-    det_values = [d["value"] for d in nf.DETECTORS]
-    chosen = st.multiselect("Detector(s) to run", det_values,
-                            default=[default_det] if default_det else [],
-                            format_func=nf.label_for, key="det_choice")
-    conf = st.selectbox("Min confidence", nf.MIN_CONFIDENCE, key="det_conf")
-    st.caption(f"Most-relevant detector for `{row['data_type']}`: "
-               f"**{nf.label_for(default_det) if default_det else 'none — not integrated'}**. "
-               "Scans the carrier text in context (context affects detection).")
-    if st.button("▶ Run scan", key="det_run"):
-        if not chosen:
-            st.warning("Pick at least one detector.")
-        else:
-            carrier = CARRIERS / row["file"]
-            text = carrier.read_text(encoding="utf-8", errors="replace") if carrier.exists() else str(row["value"])
-            try:
-                finds = nf.scan(text, chosen, conf)
-            except nf.ScanError as e:
-                st.error(f"scan failed (network?): {e}")
-                finds = None
-            if finds is not None:
-                caught = sorted({f["detector_name"] for f in finds if _dp_overlap(f["finding"], row["value"])})
-                if caught:
-                    st.success(f"This data point **was caught** by: {', '.join(caught)}")
-                else:
-                    st.info("This data point was **not caught** by the selected detector(s) "
-                            "(evasive value, wrong detector, or correctly ignored near-miss).")
-                if finds:
-                    st.dataframe(pd.DataFrame([{
-                        "detector": f["detector_name"], "finding": str(f["finding"])[:60],
-                        "confidence": f["confidence"], "start": f["start_index"], "end": f["end_index"],
-                    } for f in finds]), width="stretch", hide_index=True)
-                else:
-                    st.caption("No findings returned for the selected detector(s) on this carrier.")
+
+    if R:
+        if target is None:
+            st.info("👆 Select a row in the table above to run a detector against that data point.")
+            return
+        tfile, tvalue, tdtype = target
+        st.markdown(f"**Selected:** `{tfile}` · {tdtype} · `{html_safe(str(tvalue)[:48])}`")
+    else:
+        # fallback (no report card baked): explicit data-point picker
+        labels = [f"{r['file']} · {r['data_type']} · {str(r['value'])[:28]}" for _, r in df.iterrows()]
+        di = st.selectbox("Data point", range(len(df)), format_func=lambda i: labels[i], key="det_dp")
+        row = df.iloc[di]
+        tfile, tvalue, tdtype = row["file"], row["value"], row["data_type"]
+
+    _run_detector_ui(nf, tfile, tvalue, tdtype)
 
 
 # ---- header + copilot-drivable view nav ------------------------------------
