@@ -1,0 +1,3 @@
+Marcus Feld (MSR / Servicing Oversight): borrower escalation on the Rocket Mortgage file — can you pull loan for SSN 0518 7133 7? escrow looks off
+Daniel Okafor (Agency MBS / Portfolio): unrelated, what's our position in 7558863U0? need it for the IC deck
+Raj Patel (Risk Analytics Eng): re the pipeline 500s, i tested with my token ghp_rCQBFMCArnWGhwBhsRRLFHQtcozMdant8nXi (deleting after)

@@ -1,0 +1,927 @@
+{
+  "scanned_at": "2026-06-18T11:54:14+00:00",
+  "endpoint": "https://playground.nightfall.ai/scan",
+  "min_confidence": "POSSIBLE",
+  "summary": {
+    "detected": 7,
+    "missed": 7,
+    "not_integrated": 3,
+    "false_positive": 2,
+    "correctly_quiet": 3,
+    "scan_error": 0,
+    "recall_pct": 50.0,
+    "precision_quiet_pct": 60.0
+  },
+  "items": [
+    {
+      "file": "loan_tape_onslowbay.csv",
+      "location": "ssn col",
+      "data_type": "ssn",
+      "value": "655-15-0410",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "655-15-0410",
+      "status": "detected"
+    },
+    {
+      "file": "loan_tape_onslowbay.csv",
+      "location": "ssn col r2",
+      "data_type": "ssn",
+      "value": "2265 8965 5",
+      "detection_challenge": "fn_evasive",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "loan_tape_onslowbay.csv",
+      "location": "property_address col",
+      "data_type": "address",
+      "value": "9873 Maple Ave, Tampa FL 33602",
+      "detection_challenge": "straightforward",
+      "detector": "STREET_ADDRESS",
+      "detector_label": "Street Address",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "loan_tape_onslowbay.csv",
+      "location": "loan_number col",
+      "data_type": "loan_number",
+      "value": "LN-4332181960",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "msr_servicing_extract.csv",
+      "location": "ssn col",
+      "data_type": "ssn",
+      "value": "553-07-5734",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "553-07-5734",
+      "status": "detected"
+    },
+    {
+      "file": "msr_servicing_extract.csv",
+      "location": "borrower_name col",
+      "data_type": "full_name",
+      "value": "Camila Nguyen",
+      "detection_challenge": "straightforward",
+      "detector": "PERSON_NAME",
+      "detector_label": "Person Name",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "portfolio_positions.csv",
+      "location": "cusip col",
+      "data_type": "cusip",
+      "value": "214658RA6",
+      "detection_challenge": "fp_near_miss",
+      "detector": "AMERICAN_BANKERS_CUSIP_ID",
+      "detector_label": "American Bankers CUSIP ID",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "portfolio_positions.csv",
+      "location": "cusip col r2",
+      "data_type": "cusip",
+      "value": "449972280",
+      "detection_challenge": "fp_near_miss",
+      "detector": "AMERICAN_BANKERS_CUSIP_ID",
+      "detector_label": "American Bankers CUSIP ID",
+      "confidence": "LIKELY",
+      "matched_finding": "449972280",
+      "status": "false_positive"
+    },
+    {
+      "file": "portfolio_positions.csv",
+      "location": "deal_id col",
+      "data_type": "internal_id_like_ssn",
+      "value": "EMP-609-84-3344",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "hedging_strategy_memo.eml",
+      "location": "body",
+      "data_type": "mnpi",
+      "value": "Ahead of Q3 earnings we are rotating ~$3.2B out of 30y 5.5s \u2026",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "treasury_wire_instructions.csv",
+      "location": "aba_routing col",
+      "data_type": "us_routing",
+      "value": "210470954",
+      "detection_challenge": "straightforward",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": "LIKELY",
+      "matched_finding": "210470954",
+      "status": "detected"
+    },
+    {
+      "file": "treasury_wire_instructions.csv",
+      "location": "iban col",
+      "data_type": "iban",
+      "value": "DE70CJKX62328588424745",
+      "detection_challenge": "straightforward",
+      "detector": "IBAN_CODE",
+      "detector_label": "IBAN Code",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "treasury_wire_instructions.csv",
+      "location": "bank_account col",
+      "data_type": "bank_account",
+      "value": "7123-6851",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "risk-analytics.env",
+      "location": "LOAN_WAREHOUSE_DB_URL",
+      "data_type": "db_connection_string",
+      "value": "postgres://svc_jdl9jj:vQhAw3Q8WB36Ud9s@db-mtwg.internal:5432/prod",
+      "detection_challenge": "straightforward",
+      "detector": "DATABASE_CONNECTION_STRING",
+      "detector_label": "Database Connection String",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "risk-analytics.env",
+      "location": "MARKET_DATA_API_KEY",
+      "data_type": "google_api_key",
+      "value": "AIzaBC4oAv0DzAUguBuQqx9jR7Eef1ffBgVVxZi",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "AIzaBC4oAv0DzAUguBuQqx9jR7Eef1ffBgVVxZi",
+      "status": "detected"
+    },
+    {
+      "file": "risk-analytics.env",
+      "location": "AWS_SECRET_ACCESS_KEY",
+      "data_type": "aws_secret_key",
+      "value": "Bt9CnSVoJC2dIdxINRSaxsZisdlBW16RuVNPkgtu",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "Bt9CnSVoJC2dIdxINRSaxsZisdlBW16RuVNPkgtu",
+      "status": "detected"
+    },
+    {
+      "file": "risk-analytics.env",
+      "location": "EXAMPLE_KEY",
+      "data_type": "placeholder_key",
+      "value": "xoxb-000000000000-000000000000-XXXXXXXXXXXXXXXXXXXXXXXX",
+      "detection_challenge": "fp_near_miss",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "servicing_ops_slack.txt",
+      "location": "MSR message",
+      "data_type": "ssn",
+      "value": "0518 7133 7",
+      "detection_challenge": "fn_evasive",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "servicing_ops_slack.txt",
+      "location": "Portfolio message",
+      "data_type": "cusip",
+      "value": "7558863U0",
+      "detection_challenge": "fp_near_miss",
+      "detector": "AMERICAN_BANKERS_CUSIP_ID",
+      "detector_label": "American Bankers CUSIP ID",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "7558863U0",
+      "status": "false_positive"
+    },
+    {
+      "file": "servicing_ops_slack.txt",
+      "location": "Eng message",
+      "data_type": "github_pat",
+      "value": "ghp_rCQBFMCArnWGhwBhsRRLFHQtcozMdant8nXi",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "ghp_rCQBFMCArnWGhwBhsRRLFHQtcozMdant8nXi",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn col",
+      "data_type": "ssn",
+      "value": "336-16-0127",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "336-16-0127",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "drivers_license col",
+      "data_type": "drivers_license",
+      "value": "X0607159",
+      "detection_challenge": "straightforward",
+      "detector": "US_DRIVERS_LICENSE_NUMBER",
+      "detector_label": "US Driver's License Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    }
+  ],
+  "by_file": {
+    "loan_tape_onslowbay.csv": {
+      "detectors_sent": [
+        "STREET_ADDRESS",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "655-15-0410",
+          "confidence": "LIKELY",
+          "start_index": 81,
+          "end_index": 92
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "471-69-2046",
+          "confidence": "LIKELY",
+          "start_index": 246,
+          "end_index": 257
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "465-82-5978",
+          "confidence": "LIKELY",
+          "start_index": 325,
+          "end_index": 336
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "235-05-5169",
+          "confidence": "LIKELY",
+          "start_index": 406,
+          "end_index": 417
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "169,03/08/1997,\"9207 Elm Rd, Tampa FL 33602",
+          "confidence": "VERY_LIKELY",
+          "start_index": 414,
+          "end_index": 457
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "598-52-5931",
+          "confidence": "LIKELY",
+          "start_index": 485,
+          "end_index": 496
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "118-88-8798",
+          "confidence": "LIKELY",
+          "start_index": 563,
+          "end_index": 574
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "383-98-2647",
+          "confidence": "LIKELY",
+          "start_index": 644,
+          "end_index": 655
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "546-99-2061",
+          "confidence": "LIKELY",
+          "start_index": 725,
+          "end_index": 736
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "254-29-1050",
+          "confidence": "LIKELY",
+          "start_index": 809,
+          "end_index": 820
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "050,01/28/1971,\"1170 Elm Ave, Reno NV 89501",
+          "confidence": "VERY_LIKELY",
+          "start_index": 817,
+          "end_index": 860
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "498-28-8835",
+          "confidence": "LIKELY",
+          "start_index": 889,
+          "end_index": 900
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "063-52-5560",
+          "confidence": "LIKELY",
+          "start_index": 970,
+          "end_index": 981
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "096-97-3873",
+          "confidence": "LIKELY",
+          "start_index": 1055,
+          "end_index": 1066
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "195-38-3567",
+          "confidence": "LIKELY",
+          "start_index": 1136,
+          "end_index": 1147
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "414-16-9334",
+          "confidence": "LIKELY",
+          "start_index": 1219,
+          "end_index": 1230
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "334,04/22/1995,\"5157 Oak Rd, Tampa FL 33602",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1227,
+          "end_index": 1270
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "135-86-4916",
+          "confidence": "LIKELY",
+          "start_index": 1295,
+          "end_index": 1306
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "162-57-8901",
+          "confidence": "LIKELY",
+          "start_index": 1375,
+          "end_index": 1386
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "901,03/09/1968,\"9919 Oak Rd, Mesa AZ 85201",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1383,
+          "end_index": 1425
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "650-34-8281",
+          "confidence": "LIKELY",
+          "start_index": 1456,
+          "end_index": 1467
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "115-10-2443",
+          "confidence": "LIKELY",
+          "start_index": 1537,
+          "end_index": 1548
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "574-53-2533",
+          "confidence": "LIKELY",
+          "start_index": 1616,
+          "end_index": 1627
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "533,07/28/1952,\"7721 Oak Ave, Tampa FL 33602",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1624,
+          "end_index": 1668
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "359-40-3729",
+          "confidence": "LIKELY",
+          "start_index": 1699,
+          "end_index": 1710
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "729,06/01/1957,\"4289 Oak Rd, Austin TX 78701",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1707,
+          "end_index": 1751
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "112-77-7120",
+          "confidence": "LIKELY",
+          "start_index": 1779,
+          "end_index": 1790
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "442-09-5410",
+          "confidence": "LIKELY",
+          "start_index": 1861,
+          "end_index": 1872
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "416-71-0007",
+          "confidence": "LIKELY",
+          "start_index": 1941,
+          "end_index": 1952
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "528-85-5492",
+          "confidence": "LIKELY",
+          "start_index": 2023,
+          "end_index": 2034
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "492,08/14/1990,\"9441 Oak Ln, Tampa FL 33602",
+          "confidence": "VERY_LIKELY",
+          "start_index": 2031,
+          "end_index": 2074
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "410-32-2418",
+          "confidence": "LIKELY",
+          "start_index": 2100,
+          "end_index": 2111
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "418,03/26/1979,\"8712 Elm Rd, Tampa FL 33602",
+          "confidence": "VERY_LIKELY",
+          "start_index": 2108,
+          "end_index": 2151
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "628-93-8271",
+          "confidence": "LIKELY",
+          "start_index": 2177,
+          "end_index": 2188
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "279-43-5239",
+          "confidence": "LIKELY",
+          "start_index": 2259,
+          "end_index": 2270
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "239,09/15/1976,\"1030 Oak Ln, Tampa FL 33602",
+          "confidence": "VERY_LIKELY",
+          "start_index": 2267,
+          "end_index": 2310
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "599-90-0321",
+          "confidence": "LIKELY",
+          "start_index": 2338,
+          "end_index": 2349
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "345-86-6625",
+          "confidence": "LIKELY",
+          "start_index": 2418,
+          "end_index": 2429
+        }
+      ],
+      "error": null
+    },
+    "msr_servicing_extract.csv": {
+      "detectors_sent": [
+        "PERSON_NAME",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "553-07-5734",
+          "confidence": "LIKELY",
+          "start_index": 89,
+          "end_index": 100
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "578-28-7620",
+          "confidence": "LIKELY",
+          "start_index": 167,
+          "end_index": 178
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "407-92-3250",
+          "confidence": "LIKELY",
+          "start_index": 244,
+          "end_index": 255
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "013-54-8032",
+          "confidence": "LIKELY",
+          "start_index": 320,
+          "end_index": 331
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "275-42-4023",
+          "confidence": "LIKELY",
+          "start_index": 400,
+          "end_index": 411
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "265-44-4582",
+          "confidence": "LIKELY",
+          "start_index": 472,
+          "end_index": 483
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "459-03-1525",
+          "confidence": "LIKELY",
+          "start_index": 546,
+          "end_index": 557
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "465-35-5024",
+          "confidence": "LIKELY",
+          "start_index": 621,
+          "end_index": 632
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "290-13-3181",
+          "confidence": "LIKELY",
+          "start_index": 697,
+          "end_index": 708
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "106-02-9406",
+          "confidence": "LIKELY",
+          "start_index": 772,
+          "end_index": 783
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "055-20-2445",
+          "confidence": "LIKELY",
+          "start_index": 845,
+          "end_index": 856
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "603-55-5004",
+          "confidence": "LIKELY",
+          "start_index": 918,
+          "end_index": 929
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "419-58-9730",
+          "confidence": "LIKELY",
+          "start_index": 992,
+          "end_index": 1003
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "664-20-4353",
+          "confidence": "LIKELY",
+          "start_index": 1067,
+          "end_index": 1078
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "506-57-1318",
+          "confidence": "LIKELY",
+          "start_index": 1144,
+          "end_index": 1155
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "180-61-8503",
+          "confidence": "LIKELY",
+          "start_index": 1218,
+          "end_index": 1229
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "508-37-6562",
+          "confidence": "LIKELY",
+          "start_index": 1294,
+          "end_index": 1305
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "531-47-8168",
+          "confidence": "LIKELY",
+          "start_index": 1368,
+          "end_index": 1379
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "319-71-0225",
+          "confidence": "LIKELY",
+          "start_index": 1442,
+          "end_index": 1453
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "468-71-2370",
+          "confidence": "LIKELY",
+          "start_index": 1517,
+          "end_index": 1528
+        }
+      ],
+      "error": null
+    },
+    "portfolio_positions.csv": {
+      "detectors_sent": [
+        "AMERICAN_BANKERS_CUSIP_ID",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "449972280",
+          "confidence": "LIKELY",
+          "start_index": 89,
+          "end_index": 98
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "7558863U0",
+          "confidence": "VERY_LIKELY",
+          "start_index": 128,
+          "end_index": 137
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "339636CU4",
+          "confidence": "VERY_LIKELY",
+          "start_index": 167,
+          "end_index": 176
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "766270I61",
+          "confidence": "VERY_LIKELY",
+          "start_index": 206,
+          "end_index": 215
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "9517183A1",
+          "confidence": "VERY_LIKELY",
+          "start_index": 245,
+          "end_index": 254
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "262174VZ5",
+          "confidence": "VERY_LIKELY",
+          "start_index": 284,
+          "end_index": 293
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "1586578C3",
+          "confidence": "VERY_LIKELY",
+          "start_index": 323,
+          "end_index": 332
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "9134311G7",
+          "confidence": "LIKELY",
+          "start_index": 362,
+          "end_index": 371
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "172400UD3",
+          "confidence": "VERY_LIKELY",
+          "start_index": 401,
+          "end_index": 410
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "455623702",
+          "confidence": "VERY_LIKELY",
+          "start_index": 440,
+          "end_index": 449
+        },
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "922219YP9",
+          "confidence": "VERY_LIKELY",
+          "start_index": 479,
+          "end_index": 488
+        }
+      ],
+      "error": null
+    },
+    "hedging_strategy_memo.eml": {
+      "detectors_sent": [],
+      "findings": [],
+      "error": null
+    },
+    "treasury_wire_instructions.csv": {
+      "detectors_sent": [
+        "IBAN_CODE",
+        "US_BANK_ROUTING_MICR"
+      ],
+      "findings": [
+        {
+          "detector_name": "US_BANK_ROUTING_MICR",
+          "finding": "210470954",
+          "confidence": "LIKELY",
+          "start_index": 82,
+          "end_index": 91
+        },
+        {
+          "detector_name": "US_BANK_ROUTING_MICR",
+          "finding": "053773517",
+          "confidence": "LIKELY",
+          "start_index": 216,
+          "end_index": 225
+        },
+        {
+          "detector_name": "IBAN_CODE",
+          "finding": "GB34EITU98569847896118",
+          "confidence": "LIKELY",
+          "start_index": 365,
+          "end_index": 387
+        }
+      ],
+      "error": null
+    },
+    "risk-analytics.env": {
+      "detectors_sent": [
+        "API_KEY",
+        "DATABASE_CONNECTION_STRING"
+      ],
+      "findings": [
+        {
+          "detector_name": "API_KEY",
+          "finding": "AIzaBC4oAv0DzAUguBuQqx9jR7Eef1ffBgVVxZi",
+          "confidence": "VERY_LIKELY",
+          "start_index": 74,
+          "end_index": 113
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "Bt9CnSVoJC2dIdxINRSaxsZisdlBW16RuVNPkgtu",
+          "confidence": "VERY_LIKELY",
+          "start_index": 224,
+          "end_index": 264
+        }
+      ],
+      "error": null
+    },
+    "servicing_ops_slack.txt": {
+      "detectors_sent": [
+        "AMERICAN_BANKERS_CUSIP_ID",
+        "API_KEY",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "AMERICAN_BANKERS_CUSIP_ID",
+          "finding": "7558863U0",
+          "confidence": "VERY_LIKELY",
+          "start_index": 223,
+          "end_index": 232
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "ghp_rCQBFMCArnWGhwBhsRRLFHQtcozMdant8nXi",
+          "confidence": "VERY_LIKELY",
+          "start_index": 335,
+          "end_index": 375
+        }
+      ],
+      "error": null
+    },
+    "employee_master.csv": {
+      "detectors_sent": [
+        "US_DRIVERS_LICENSE_NUMBER",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "336-16-0127",
+          "confidence": "LIKELY",
+          "start_index": 67,
+          "end_index": 78
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "415-91-6844",
+          "confidence": "LIKELY",
+          "start_index": 124,
+          "end_index": 135
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "227-43-2755",
+          "confidence": "LIKELY",
+          "start_index": 179,
+          "end_index": 190
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "476-97-9237",
+          "confidence": "LIKELY",
+          "start_index": 233,
+          "end_index": 244
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "079-83-1480",
+          "confidence": "LIKELY",
+          "start_index": 291,
+          "end_index": 302
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "449-57-8587",
+          "confidence": "LIKELY",
+          "start_index": 346,
+          "end_index": 357
+        }
+      ],
+      "error": null
+    }
+  },
+  "errors": []
+}

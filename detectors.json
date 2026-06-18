@@ -467,6 +467,9 @@
     "git_sha": null,
     "device_serial_like_mrn": null,
     "lab_eval_rubric": null,
-    "contract_terms": null
+    "contract_terms": null,
+    "cusip": "AMERICAN_BANKERS_CUSIP_ID",
+    "loan_number": null,
+    "mnpi": null
   }
 }

@@ -1,0 +1,115 @@
+{
+  "company": "Annaly Capital Management",
+  "researched_at": "2026-06-18",
+  "narrative": "Annaly is a ~190-person mortgage REIT that nonetheless custodies consumer borrower PII at scale (Onslow Bay whole loans + MSR servicing ~608k loans). DLP value = catch the borrower PII (loan tapes), MNPI (positions/hedging/earnings), and counterparty wire instructions \u2014 while staying quiet on the CUSIPs/pool numbers/trade IDs their trading work is saturated with. Open on a loan tape, show the CUSIP precision inversion, then MNPI and wires.",
+  "findings": [
+    {
+      "topic": "Business model",
+      "finding": "Internally-managed mortgage REIT (NYSE: NLY) across four segments: Agency MBS, Residential Credit (Onslow Bay), MSR, and Corporate; spread investing funded by repo with heavy hedging.",
+      "source": "https://stockanalysis.com/stocks/nly/company/",
+      "confidence": "high"
+    },
+    {
+      "topic": "Borrower PII at scale",
+      "finding": "MSR platform services ~608,000 loans / $192B UPB (Rocket as subservicer); Onslow Bay buys residential whole loans \u2014 so Annaly holds loan-level borrower NPI (SSN, address, DOB, loan number) despite being a markets firm.",
+      "source": "https://mortgageorb.com/rocket-mortgage-annaly-capital-management-enter-msr-subservicing-agreement",
+      "confidence": "high"
+    },
+    {
+      "topic": "Tiny workforce",
+      "finding": "~190 employees manage a large balance sheet \u2014 high value-per-person, with a small security/ops surface relative to the sensitivity of the borrower data and MNPI it touches.",
+      "source": "https://www.sec.gov/Archives/edgar/data/0001043219/000120677417001167/annaly3183171-def14a.htm",
+      "confidence": "medium"
+    },
+    {
+      "topic": "Regulatory exposure",
+      "finding": "GLBA (borrower NPI), SEC/Reg FD + insider trading (public company \u2192 MNPI), SOX, state privacy. Residential credit & servicing add consumer-finance obligations.",
+      "source": "inference from segments + public-company status",
+      "confidence": "high"
+    },
+    {
+      "topic": "Securities-identifier noise",
+      "finding": "As an agency-MBS trader, Annaly's files are saturated with CUSIPs, pool numbers, and trade IDs \u2014 public identifiers that look sensitive; a CUSIP detector firing on them is pure alert-fatigue.",
+      "source": "inference from Agency MBS trading business",
+      "confidence": "high"
+    },
+    {
+      "topic": "Tabular data evades prose-tuned detection",
+      "finding": "In the playground scan, strong-pattern types (SSN, IBAN, CUSIP) fire even in CSV, but borrower NAME / ADDRESS / driver's-license and some fields are missed when packed in dense loan-tape / wire CSV rows (they fire fine in prose). For a firm whose crown-jewel data is bulk loan tapes, this tabular under-detection is the recall story.",
+      "source": "observed: scan.py over the generated carriers",
+      "confidence": "high"
+    }
+  ],
+  "hypotheses": [
+    {
+      "hypothesis": "Borrower loan-level PII at scale \u2014 whole-loan tapes (Onslow Bay) and MSR servicing files (~608k loans) carry bulk borrower SSN/name/DOB/address/loan#. The crown-jewel GLBA leak for a markets firm not built around consumer-data security.",
+      "basis": "MSR services ~608k loans; Onslow Bay acquires whole loans.",
+      "status": "confirmed"
+    },
+    {
+      "hypothesis": "CUSIP / securities-identifier precision inversion \u2014 CUSIPs, pool numbers, trade IDs are public identifiers their work is full of; a detector flagging them is unusable noise. The value is staying quiet on securities data while catching real PII.",
+      "basis": "Agency-MBS trading produces CUSIPs/pool numbers constantly; a CUSIP detector exists.",
+      "status": "confirmed"
+    },
+    {
+      "hypothesis": "MNPI / confidential markets info \u2014 portfolio positions, hedging, securitization pipeline, pre-release earnings, board decks \u2014 Reg FD + insider-trading exposure. Content detection, not regex PII.",
+      "basis": "Public REIT; positions/hedging are material non-public information.",
+      "status": "confirmed"
+    },
+    {
+      "hypothesis": "Counterparty wire / settlement instructions \u2014 repo financing and large-dollar wires expose bank accounts, ABA routing, SWIFT/IBAN in treasury emails/spreadsheets.",
+      "basis": "Repo is Annaly's core funding; settlement requires counterparty wire details.",
+      "status": "confirmed"
+    }
+  ],
+  "decisions": [
+    {
+      "area": "Emphasis",
+      "choice": "borrower PII at scale + the CUSIP precision inversion",
+      "rationale": "The two most distinctive, demo-resonant points: a markets firm holding 608k borrowers' NPI, and the need to not drown them in CUSIP alerts.",
+      "drove": "loan tape + MSR carriers as the lead PII; a positions/trade carrier full of CUSIPs as the precision near-miss"
+    },
+    {
+      "area": "Scale",
+      "choice": "standard (~7 carriers)",
+      "rationale": "User selected standard.",
+      "drove": "7 carriers across Email/Drive/Snowflake/GitHub/Slack, ~2 dozen indexed plants"
+    },
+    {
+      "area": "Surfaces",
+      "choice": "Email, Google Drive, Snowflake, GitHub, Slack",
+      "rationale": "Where loan tapes, wires, MNPI, servicing data, and analytics secrets actually live.",
+      "drove": "one+ carrier per surface"
+    },
+    {
+      "area": "Personas",
+      "choice": "Portfolio/Agency, Onslow Bay/Residential Credit, MSR/Servicing, Treasury/Repo, Finance/SEC, Risk Analytics Eng, HR",
+      "rationale": "Defining personas are the trading desk (MNPI/CUSIPs) and the loan-ops teams (borrower PII), not a generic support org.",
+      "drove": "loan tape\u2192Onslow Bay; MNPI\u2192portfolio/finance; wires\u2192treasury; secrets\u2192analytics eng"
+    },
+    {
+      "area": "FP near-misses",
+      "choice": "CUSIPs, pool numbers, trade IDs, loan numbers shaped like SSNs, placeholder keys",
+      "rationale": "The work-product inversion: their everyday securities identifiers look sensitive but are public; over-firing is the alert-fatigue story.",
+      "drove": "the positions/trade carrier tagged fp_near_miss; cusip mapped to AMERICAN_BANKERS_CUSIP_ID so the report card shows it firing"
+    },
+    {
+      "area": "FN evasions",
+      "choice": "spaced borrower SSN in a tape/Slack, wire account spelled out, MNPI in prose",
+      "rationale": "Recall on whitespace-fragile and content-only cases.",
+      "drove": "tagged fn_evasive plants in MSR/Slack/treasury/MNPI carriers"
+    },
+    {
+      "area": "Data categories",
+      "choice": "PII (borrower), financial (wires), secret (analytics keys), confidential (MNPI); no PCI",
+      "rationale": "Annaly doesn't process payment cards; cards would be irrelevant padding.",
+      "drove": "category mix; no credit-card carriers"
+    }
+  ],
+  "open_questions": [
+    "Exact analytics/risk stack assumed (Bloomberg/market-data vendor, warehouse) \u2014 would refine which secret types to plant.",
+    "CUSIPs are synthesized to shape (9-char) \u2014 real CUSIP check-digit validity not guaranteed; fine for the alert-noise demo.",
+    "Document carriers (.xlsx loan tape, .pdf board deck) not included \u2014 text/CSV/JSON/eml only.",
+    "Recall is ~50% mostly because borrower PII in dense CSV/tabular form under-detects vs prose \u2014 a genuine, prospect-relevant gap (loan tapes), not a generator bug; values fire in clean context."
+  ]
+}

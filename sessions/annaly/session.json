@@ -1,0 +1,122 @@
+{
+  "session_id": "annaly-capital-management-a49384",
+  "company": "Annaly Capital Management",
+  "created_at": "2026-06-18T11:46:36+00:00",
+  "updated_at": "2026-06-18T11:55:09+00:00",
+  "status": "generated",
+  "profile_summary": "Annaly Capital Management (NLY): internally-managed mortgage REIT (~190 staff) across Agency MBS, Residential Credit (Onslow Bay whole loans), and MSR (~608k serviced loans). Demo centers on borrower loan-level PII at scale, the CUSIP/securities-identifier precision inversion, MNPI/confidential markets info, and counterparty wire instructions; HR layer underneath.",
+  "config": {
+    "seed": 42,
+    "target_carriers": 7,
+    "surfaces": [
+      "Email",
+      "Google Drive",
+      "Snowflake",
+      "GitHub",
+      "Slack"
+    ],
+    "categories": [
+      "PII",
+      "financial",
+      "secret",
+      "confidential"
+    ],
+    "challenge_mix": {
+      "straightforward": 0.55,
+      "fp_near_miss": 0.2,
+      "fn_evasive": 0.25
+    },
+    "personas": [
+      {
+        "name": "Daniel Okafor",
+        "team": "Agency MBS / Portfolio"
+      },
+      {
+        "name": "Priya Menon",
+        "team": "Onslow Bay / Residential Credit Ops"
+      },
+      {
+        "name": "Marcus Feld",
+        "team": "MSR / Servicing Oversight"
+      },
+      {
+        "name": "Sofia Reyes",
+        "team": "Treasury / Repo Ops"
+      },
+      {
+        "name": "Helen Cho",
+        "team": "Finance / SEC Reporting"
+      },
+      {
+        "name": "Raj Patel",
+        "team": "Risk Analytics Eng"
+      },
+      {
+        "name": "Tom Bauer",
+        "team": "People/HR"
+      }
+    ],
+    "volume": 1.0,
+    "scale": "standard",
+    "emphasis": "borrower_pii_and_cusip_precision",
+    "subservicer": "Rocket Mortgage",
+    "msr_loans": "~608,000"
+  },
+  "planted_summary": {
+    "total": 22,
+    "by_category": {
+      "PII": 10,
+      "financial": 6,
+      "confidential": 1,
+      "secret": 5
+    },
+    "by_challenge": {
+      "straightforward": 13,
+      "fn_evasive": 4,
+      "fp_near_miss": 5
+    },
+    "surfaces": [
+      "Email",
+      "GitHub",
+      "Google Drive",
+      "Slack",
+      "Snowflake"
+    ]
+  },
+  "manifest": [
+    "profile.md",
+    "generate.py",
+    "PLANTED_INDEX.csv",
+    "PLANTED_INDEX.md",
+    "dashboard.html",
+    "carriers/employee_master.csv",
+    "carriers/hedging_strategy_memo.eml",
+    "carriers/loan_tape_onslowbay.csv",
+    "carriers/msr_servicing_extract.csv",
+    "carriers/portfolio_positions.csv",
+    "carriers/risk-analytics.env",
+    "carriers/servicing_ops_slack.txt",
+    "carriers/treasury_wire_instructions.csv"
+  ],
+  "pending": [],
+  "provenance": {
+    "skill_version": "1.0",
+    "python": "3.14.4",
+    "seed": 42,
+    "generate_py_sha256": "ca2bcdf4782dbced9de247288542331ef0dfcc7b49066980bec676f77cec6147"
+  },
+  "decision_log": [
+    {
+      "ts": "2026-06-18T11:46:36+00:00",
+      "note": "session created"
+    },
+    {
+      "ts": "2026-06-18T11:50:24+00:00",
+      "note": "generated 22 plants/8 carriers (standard); borrower PII + CUSIP precision inversion + MNPI + wires + HR; scanned"
+    },
+    {
+      "ts": "2026-06-18T11:55:09+00:00",
+      "note": "cusip generator fixed (realistic shape \u2192 detector fires); recorded tabular-under-detection finding"
+    }
+  ]
+}
