@@ -1,0 +1,1039 @@
+{
+  "scanned_at": "2026-06-18T10:03:16+00:00",
+  "endpoint": "https://playground.nightfall.ai/scan",
+  "min_confidence": "POSSIBLE",
+  "summary": {
+    "detected": 17,
+    "missed": 2,
+    "not_integrated": 3,
+    "false_positive": 3,
+    "correctly_quiet": 1,
+    "scan_error": 0,
+    "recall_pct": 89.5,
+    "precision_quiet_pct": 25.0
+  },
+  "items": [
+    {
+      "file": "enrichment-platform.env",
+      "location": "CONTACT_DB_URL",
+      "data_type": "db_connection_string",
+      "value": "postgres://svc_ohbvrp:oiVgRV5IfLBcbfno@db-gmbj.internal:5432/prod",
+      "detection_challenge": "straightforward",
+      "detector": "DATABASE_CONNECTION_STRING",
+      "detector_label": "Database Connection String",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "postgres://svc_ohbvrp:oiVgRV5IfLBcbfno@db-gmbj.internal:5432/prod",
+      "status": "detected"
+    },
+    {
+      "file": "enrichment-platform.env",
+      "location": "AWS_SECRET_ACCESS_KEY",
+      "data_type": "aws_secret_key",
+      "value": "WmTSHf6pWkLUyifDLkDmWJ6UuVTAIjvFu7WICPhD",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "WmTSHf6pWkLUyifDLkDmWJ6UuVTAIjvFu7WICPhD",
+      "status": "detected"
+    },
+    {
+      "file": "enrichment-platform.env",
+      "location": "MAPS_GEOCODE_KEY",
+      "data_type": "google_api_key",
+      "value": "AIza0cZuzren68K4TunPFz46PDjqipVJIqVLB5L",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "POSSIBLE",
+      "matched_finding": "AIza0cZuzren68K4TunPFz46PDjqipVJIqVLB5L",
+      "status": "detected"
+    },
+    {
+      "file": "enrichment-platform.env",
+      "location": "EXAMPLE_KEY",
+      "data_type": "placeholder_key",
+      "value": "ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+      "detection_challenge": "fp_near_miss",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "ci-build.log",
+      "location": "export line",
+      "data_type": "aws_secret_key",
+      "value": "UCr_lgotu2iXW7GboIRoL3u6aHwnMztVuaP-coUN",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "UCr_lgotu2iXW7GboIRoL3u6aHwnMztVuaP-coUN",
+      "status": "detected"
+    },
+    {
+      "file": "ci-build.log",
+      "location": "heredoc",
+      "data_type": "db_connection_string",
+      "value": "postgres://svc_pdp4k8:ffUF0eWIXi\\niQE8Jk@db-qh3m.internal:5432/prod",
+      "detection_challenge": "fn_evasive",
+      "detector": "DATABASE_CONNECTION_STRING",
+      "detector_label": "Database Connection String",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "ci-build.log",
+      "location": "build id",
+      "data_type": "git_sha",
+      "value": "d669cbee3772a077021721a278f64f7fd633dbdd",
+      "detection_challenge": "fp_near_miss",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "contact_export_q1.csv",
+      "location": "work_email col",
+      "data_type": "email",
+      "value": "rromano@northwind.io",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "rromano@northwind.io",
+      "status": "detected"
+    },
+    {
+      "file": "contact_export_q1.csv",
+      "location": "phone col",
+      "data_type": "phone",
+      "value": "(890) 869-2612",
+      "detection_challenge": "straightforward",
+      "detector": "PHONE_NUMBER",
+      "detector_label": "Phone Number",
+      "confidence": "LIKELY",
+      "matched_finding": "(890) 869-2612",
+      "status": "detected"
+    },
+    {
+      "file": "contact_export_q1.csv",
+      "location": "work_email col",
+      "data_type": "email",
+      "value": "madeyemi@northwind.io",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "madeyemi@northwind.io",
+      "status": "detected"
+    },
+    {
+      "file": "contact_export_q1.csv",
+      "location": "phone col",
+      "data_type": "phone",
+      "value": "(312) 454-4139",
+      "detection_challenge": "straightforward",
+      "detector": "PHONE_NUMBER",
+      "detector_label": "Phone Number",
+      "confidence": "LIKELY",
+      "matched_finding": "(312) 454-4139",
+      "status": "detected"
+    },
+    {
+      "file": "contact_export_q1.csv",
+      "location": "work_email col",
+      "data_type": "email",
+      "value": "ghaddad@northwind.io",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "ghaddad@northwind.io",
+      "status": "detected"
+    },
+    {
+      "file": "contact_export_q1.csv",
+      "location": "phone col",
+      "data_type": "phone",
+      "value": "(633) 387-5563",
+      "detection_challenge": "straightforward",
+      "detector": "PHONE_NUMBER",
+      "detector_label": "Phone Number",
+      "confidence": "LIKELY",
+      "matched_finding": "(633) 387-5563",
+      "status": "detected"
+    },
+    {
+      "file": "apollo_app_results.json",
+      "location": "results[].work_email",
+      "data_type": "email",
+      "value": "mpark@northwind.io",
+      "detection_challenge": "fp_near_miss",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "mpark@northwind.io",
+      "status": "false_positive"
+    },
+    {
+      "file": "apollo_app_results.json",
+      "location": "results[].work_email",
+      "data_type": "email",
+      "value": "leriksson@northwind.io",
+      "detection_challenge": "fp_near_miss",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "leriksson@northwind.io",
+      "status": "false_positive"
+    },
+    {
+      "file": "apollo_app_results.json",
+      "location": "results[].work_email",
+      "data_type": "email",
+      "value": "hnguyen@northwind.io",
+      "detection_challenge": "fp_near_miss",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "hnguyen@northwind.io",
+      "status": "false_positive"
+    },
+    {
+      "file": "apollo_app_results.json",
+      "location": "note_field",
+      "data_type": "phone",
+      "value": "(647) 820-9379",
+      "detection_challenge": "fn_evasive",
+      "detector": "PHONE_NUMBER",
+      "detector_label": "Phone Number",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "(647) 820-9379",
+      "status": "detected"
+    },
+    {
+      "file": "apollo_app_results.json",
+      "location": "note_field",
+      "data_type": "email",
+      "value": "mei.personal@gmail.com",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "mei.personal@gmail.com",
+      "status": "detected"
+    },
+    {
+      "file": "customer_acme_sfdc_sync.csv",
+      "location": "email col",
+      "data_type": "email",
+      "value": "rnakamura@acmecorp.com",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "rnakamura@acmecorp.com",
+      "status": "detected"
+    },
+    {
+      "file": "customer_acme_sfdc_sync.csv",
+      "location": "phone col",
+      "data_type": "phone",
+      "value": "(904) 936-4228",
+      "detection_challenge": "straightforward",
+      "detector": "PHONE_NUMBER",
+      "detector_label": "Phone Number",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "(904) 936-4228",
+      "status": "detected"
+    },
+    {
+      "file": "sdr_outreach_slack.txt",
+      "location": "Diego message",
+      "data_type": "phone",
+      "value": "8228 7062 79",
+      "detection_challenge": "fn_evasive",
+      "detector": "PHONE_NUMBER",
+      "detector_label": "Phone Number",
+      "confidence": "POSSIBLE",
+      "matched_finding": "8228 7062 79",
+      "status": "detected"
+    },
+    {
+      "file": "sdr_outreach_slack.txt",
+      "location": "Marcus message",
+      "data_type": "db_connection_string",
+      "value": "postgres://svc_ngey59:YVkQfsGQONvf08Wp@db-rtoz.internal:5432/prod",
+      "detection_challenge": "straightforward",
+      "detector": "DATABASE_CONNECTION_STRING",
+      "detector_label": "Database Connection String",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "postgres://svc_ngey59:YVkQfsGQONvf08Wp@db-rtoz.internal:5432/prod (don't paste that here again my bad",
+      "status": "detected"
+    },
+    {
+      "file": "sdr_outreach_slack.txt",
+      "location": "sequence id",
+      "data_type": "uuid4",
+      "value": "acf5e81e-7131-4269-b118-e36477097749",
+      "detection_challenge": "fp_near_miss",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn col",
+      "data_type": "ssn",
+      "value": "026-06-4012",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "026-06-4012",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "direct_deposit_acct col",
+      "data_type": "bank_account",
+      "value": "76936763",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "drivers_license col",
+      "data_type": "drivers_license",
+      "value": "E0163287",
+      "detection_challenge": "straightforward",
+      "detector": "US_DRIVERS_LICENSE_NUMBER",
+      "detector_label": "US Driver's License Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    }
+  ],
+  "by_file": {
+    "enrichment-platform.env": {
+      "detectors_sent": [
+        "API_KEY",
+        "DATABASE_CONNECTION_STRING"
+      ],
+      "findings": [
+        {
+          "detector_name": "DATABASE_CONNECTION_STRING",
+          "finding": "postgres://svc_ohbvrp:oiVgRV5IfLBcbfno@db-gmbj.internal:5432/prod",
+          "confidence": "VERY_LIKELY",
+          "start_index": 77,
+          "end_index": 142
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "WmTSHf6pWkLUyifDLkDmWJ6UuVTAIjvFu7WICPhD",
+          "confidence": "VERY_LIKELY",
+          "start_index": 204,
+          "end_index": 244
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "AIza0cZuzren68K4TunPFz46PDjqipVJIqVLB5L",
+          "confidence": "POSSIBLE",
+          "start_index": 288,
+          "end_index": 327
+        }
+      ],
+      "error": null
+    },
+    "ci-build.log": {
+      "detectors_sent": [
+        "API_KEY",
+        "DATABASE_CONNECTION_STRING"
+      ],
+      "findings": [
+        {
+          "detector_name": "API_KEY",
+          "finding": "UCr_lgotu2iXW7GboIRoL3u6aHwnMztVuaP-coUN",
+          "confidence": "VERY_LIKELY",
+          "start_index": 91,
+          "end_index": 131
+        }
+      ],
+      "error": null
+    },
+    "contact_export_q1.csv": {
+      "detectors_sent": [
+        "EMAIL_ADDRESS",
+        "PHONE_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "rromano@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 48,
+          "end_index": 68
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(890) 869-2612",
+          "confidence": "LIKELY",
+          "start_index": 69,
+          "end_index": 83
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "madeyemi@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 113,
+          "end_index": 134
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(312) 454-4139",
+          "confidence": "LIKELY",
+          "start_index": 135,
+          "end_index": 149
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "ghaddad@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 182,
+          "end_index": 202
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(633) 387-5563",
+          "confidence": "LIKELY",
+          "start_index": 203,
+          "end_index": 217
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "psantos@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 252,
+          "end_index": 272
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(764) 300-1828",
+          "confidence": "VERY_LIKELY",
+          "start_index": 273,
+          "end_index": 287
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "tcosta@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 312,
+          "end_index": 331
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(371) 616-8956",
+          "confidence": "VERY_LIKELY",
+          "start_index": 332,
+          "end_index": 346
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "lromano@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 381,
+          "end_index": 401
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(369) 588-1035",
+          "confidence": "LIKELY",
+          "start_index": 402,
+          "end_index": 416
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "rmendoza@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 452,
+          "end_index": 473
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(634) 913-8973",
+          "confidence": "LIKELY",
+          "start_index": 474,
+          "end_index": 488
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "skhan@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 519,
+          "end_index": 537
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(260) 793-9883",
+          "confidence": "LIKELY",
+          "start_index": 538,
+          "end_index": 552
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "dromano@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 584,
+          "end_index": 604
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(799) 688-9238",
+          "confidence": "VERY_LIKELY",
+          "start_index": 605,
+          "end_index": 619
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "dpark@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 643,
+          "end_index": 661
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(283) 390-2122",
+          "confidence": "VERY_LIKELY",
+          "start_index": 662,
+          "end_index": 676
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "pcosta@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 703,
+          "end_index": 722
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(614) 322-5033",
+          "confidence": "LIKELY",
+          "start_index": 723,
+          "end_index": 737
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "llindqvist@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 764,
+          "end_index": 787
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(284) 629-9565",
+          "confidence": "VERY_LIKELY",
+          "start_index": 788,
+          "end_index": 802
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "wfischer@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 828,
+          "end_index": 849
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(445) 471-7484",
+          "confidence": "LIKELY",
+          "start_index": 850,
+          "end_index": 864
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "rfischer@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 899,
+          "end_index": 920
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(970) 274-1152",
+          "confidence": "LIKELY",
+          "start_index": 921,
+          "end_index": 935
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "nreyes@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 968,
+          "end_index": 987
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(276) 750-4492",
+          "confidence": "LIKELY",
+          "start_index": 988,
+          "end_index": 1002
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "hrossi@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1029,
+          "end_index": 1048
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(271) 450-7054",
+          "confidence": "LIKELY",
+          "start_index": 1049,
+          "end_index": 1063
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "geriksson@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1091,
+          "end_index": 1113
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(921) 509-9666",
+          "confidence": "LIKELY",
+          "start_index": 1114,
+          "end_index": 1128
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "mreyes@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1157,
+          "end_index": 1176
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(338) 470-2891",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1177,
+          "end_index": 1191
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "klarsson@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1221,
+          "end_index": 1242
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(489) 819-4450",
+          "confidence": "LIKELY",
+          "start_index": 1243,
+          "end_index": 1257
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "posei@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1281,
+          "end_index": 1299
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(471) 717-9004",
+          "confidence": "LIKELY",
+          "start_index": 1300,
+          "end_index": 1314
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "tosei@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1338,
+          "end_index": 1356
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(634) 483-1722",
+          "confidence": "LIKELY",
+          "start_index": 1357,
+          "end_index": 1371
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "hosei@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1402,
+          "end_index": 1420
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(469) 365-8239",
+          "confidence": "LIKELY",
+          "start_index": 1421,
+          "end_index": 1435
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "fokafor@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1460,
+          "end_index": 1480
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(315) 277-3442",
+          "confidence": "LIKELY",
+          "start_index": 1481,
+          "end_index": 1495
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "m@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1536,
+          "end_index": 1550
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(766) 351-8041",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1551,
+          "end_index": 1565
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "mvolkov@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1601,
+          "end_index": 1621
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(241) 566-4441",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1622,
+          "end_index": 1636
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "mnavarro@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1671,
+          "end_index": 1692
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(617) 835-3532",
+          "confidence": "LIKELY",
+          "start_index": 1693,
+          "end_index": 1707
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "okapoor@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1740,
+          "end_index": 1760
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(226) 383-6442",
+          "confidence": "LIKELY",
+          "start_index": 1761,
+          "end_index": 1775
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "jtanaka@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1810,
+          "end_index": 1830
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(919) 310-7267",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1831,
+          "end_index": 1845
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "nsilva@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1874,
+          "end_index": 1893
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(672) 558-6000",
+          "confidence": "LIKELY",
+          "start_index": 1894,
+          "end_index": 1908
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "msilva@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1942,
+          "end_index": 1961
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(609) 536-5564",
+          "confidence": "LIKELY",
+          "start_index": 1962,
+          "end_index": 1976
+        }
+      ],
+      "error": null
+    },
+    "apollo_app_results.json": {
+      "detectors_sent": [
+        "EMAIL_ADDRESS",
+        "PHONE_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "mpark@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 133,
+          "end_index": 151
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(319) 467-3925",
+          "confidence": "LIKELY",
+          "start_index": 175,
+          "end_index": 189
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "leriksson@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 278,
+          "end_index": 300
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(795) 471-1626",
+          "confidence": "VERY_LIKELY",
+          "start_index": 324,
+          "end_index": 338
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "hnguyen@northwind.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 426,
+          "end_index": 446
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(312) 810-8119",
+          "confidence": "LIKELY",
+          "start_index": 470,
+          "end_index": 484
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(647) 820-9379",
+          "confidence": "VERY_LIKELY",
+          "start_index": 586,
+          "end_index": 600
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "mei.personal@gmail.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 617,
+          "end_index": 639
+        }
+      ],
+      "error": null
+    },
+    "customer_acme_sfdc_sync.csv": {
+      "detectors_sent": [
+        "EMAIL_ADDRESS",
+        "PHONE_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "rnakamura@acmecorp.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 60,
+          "end_index": 82
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(791) 394-5173",
+          "confidence": "VERY_LIKELY",
+          "start_index": 83,
+          "end_index": 97
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "aeriksson@acmecorp.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 135,
+          "end_index": 157
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(904) 936-4228",
+          "confidence": "VERY_LIKELY",
+          "start_index": 158,
+          "end_index": 172
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "iadeyemi@acmecorp.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 209,
+          "end_index": 230
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(839) 521-3041",
+          "confidence": "LIKELY",
+          "start_index": 231,
+          "end_index": 245
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "mkapoor@acmecorp.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 280,
+          "end_index": 300
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(535) 612-5844",
+          "confidence": "LIKELY",
+          "start_index": 301,
+          "end_index": 315
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "anakamura@acmecorp.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 354,
+          "end_index": 376
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(894) 966-3851",
+          "confidence": "LIKELY",
+          "start_index": 377,
+          "end_index": 391
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "lnavarro@acmecorp.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 432,
+          "end_index": 453
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(201) 511-5700",
+          "confidence": "VERY_LIKELY",
+          "start_index": 454,
+          "end_index": 468
+        }
+      ],
+      "error": null
+    },
+    "sdr_outreach_slack.txt": {
+      "detectors_sent": [
+        "DATABASE_CONNECTION_STRING",
+        "PHONE_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "8228 7062 79",
+          "confidence": "POSSIBLE",
+          "start_index": 108,
+          "end_index": 120
+        },
+        {
+          "detector_name": "DATABASE_CONNECTION_STRING",
+          "finding": "postgres://svc_ngey59:YVkQfsGQONvf08Wp@db-rtoz.internal:5432/prod (don't paste that here again my bad",
+          "confidence": "VERY_LIKELY",
+          "start_index": 213,
+          "end_index": 314
+        }
+      ],
+      "error": null
+    },
+    "employee_master.csv": {
+      "detectors_sent": [
+        "US_DRIVERS_LICENSE_NUMBER",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "026-06-4012",
+          "confidence": "LIKELY",
+          "start_index": 65,
+          "end_index": 76
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "256-16-7479",
+          "confidence": "LIKELY",
+          "start_index": 120,
+          "end_index": 131
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "241-35-5503",
+          "confidence": "LIKELY",
+          "start_index": 179,
+          "end_index": 190
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "590-49-7815",
+          "confidence": "LIKELY",
+          "start_index": 232,
+          "end_index": 243
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "607-73-0445",
+          "confidence": "LIKELY",
+          "start_index": 290,
+          "end_index": 301
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "054-45-3674",
+          "confidence": "LIKELY",
+          "start_index": 347,
+          "end_index": 358
+        }
+      ],
+      "error": null
+    }
+  },
+  "errors": []
+}

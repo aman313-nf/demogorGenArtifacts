@@ -71,7 +71,9 @@ CHAL_COLOR = {"straightforward": "#e8590c", "fp_near_miss": "#f5c518", "fn_evasi
 CAT_COLOR = {"secret": "#e03131", "confidential": "#9c36b5", "PII": "#1971c2", "financial": "#2f9e44"}
 VIEW_ICON = {"Demo overview": "📖 Demo overview", "Leaks in context": "🔍 Leaks in context",
              "Coverage & diversity": "🌈 Coverage & diversity", "Planted index": "🗂 Planted index",
-             "Research & decisions": "🔬 Research & decisions"}
+             "Research & decisions": "🔬 Research & decisions", "Detector results": "🧪 Detector results"}
+DET_BADGE = {"detected": "✅ detected", "missed": "❌ missed", "false_positive": "🟥 fired (FP)",
+             "correctly_quiet": "🟢 quiet", "not_integrated": "⬜ not integrated", "scan_error": "⚠️ error"}
 CONF_COLOR = {"high": "#2f9e44", "medium": "#f08c00", "low": "#e8590c"}
 STATUS_COLOR = {"confirmed": "#2f9e44", "proposed": "#f08c00", "rejected": "#868e96"}
 
@@ -392,6 +394,94 @@ def render_research():
             st.markdown(f"- {md_safe(q)}")
 
 
+def _dp_overlap(finding: str, value: str) -> bool:
+    f = str(finding).strip().lower()
+    v = str(value).split("…")[0].replace("\\n", "\n").strip().strip("'\"").lower()
+    return bool(f and v and (f in v or v in f))
+
+
+def render_detector_results():
+    try:
+        import nf_playground as nf
+    except Exception:
+        nf = None
+    rp = SESSION_DIR / "detector_results.json"
+    R = json.loads(rp.read_text()) if rp.exists() else None
+
+    st.caption("Live Nightfall playground detection over the generated data — baked at generation "
+               "time by `scan.py`. Run any detector manually below.")
+    if R:
+        s = R["summary"]
+        c = st.columns(6)
+        c[0].metric("✅ Detected", s["detected"])
+        c[1].metric("❌ Missed", s["missed"], help="planted true positives the relevant detector did not catch (recall gap)")
+        c[2].metric("🟥 Fired on FP", s["false_positive"], help="near-misses the detector wrongly flagged (precision miss)")
+        c[3].metric("🟢 Quiet on FP", s["correctly_quiet"], help="near-misses correctly ignored")
+        c[4].metric("⬜ Not integrated", s["not_integrated"])
+        rec, prec = s.get("recall_pct"), s.get("precision_quiet_pct")
+        c[5].metric("Recall", f"{rec}%" if rec is not None else "—",
+                    help=f"precision on near-misses: {prec}%" if prec is not None else None)
+        view = pd.DataFrame([{
+            "status": DET_BADGE.get(it["status"], it["status"]), "_raw": it["status"],
+            "data_type": it["data_type"], "detector": it["detector"] or "—",
+            "conf": it["confidence"] or "", "challenge": it["detection_challenge"],
+            "file": it["file"], "value": str(it["value"])[:40],
+        } for it in R["items"]])
+        opts = ["(all)"] + sorted(view["_raw"].unique())
+        pick = st.selectbox("Filter by status", opts, key="det_status_filter")
+        show = view if pick == "(all)" else view[view["_raw"] == pick]
+        st.dataframe(show.drop(columns="_raw"), width="stretch", hide_index=True)
+        st.caption(f"scanned {R.get('scanned_at','')} · min confidence {R.get('min_confidence')} · {R.get('endpoint')}")
+        if R.get("errors"):
+            st.warning("scan errors: " + "; ".join(R["errors"]))
+    else:
+        st.info("No `detector_results.json` yet — run `scripts/scan.py --dir <session>` after generation "
+                "to bake the report card. You can still run detectors manually below.")
+
+    st.divider()
+    st.markdown("### Run a detector manually")
+    if nf is None:
+        st.warning("Detector integration isn't bundled in this build (no `nf_playground`/`detectors.json`).")
+        return
+    labels = [f"{r['file']} · {r['data_type']} · {str(r['value'])[:28]}" for _, r in df.iterrows()]
+    di = st.selectbox("Data point", range(len(df)), format_func=lambda i: labels[i], key="det_dp")
+    row = df.iloc[di]
+    default_det = nf.detector_for(row["data_type"])
+    det_values = [d["value"] for d in nf.DETECTORS]
+    chosen = st.multiselect("Detector(s) to run", det_values,
+                            default=[default_det] if default_det else [],
+                            format_func=nf.label_for, key="det_choice")
+    conf = st.selectbox("Min confidence", nf.MIN_CONFIDENCE, key="det_conf")
+    st.caption(f"Most-relevant detector for `{row['data_type']}`: "
+               f"**{nf.label_for(default_det) if default_det else 'none — not integrated'}**. "
+               "Scans the carrier text in context (context affects detection).")
+    if st.button("▶ Run scan", key="det_run"):
+        if not chosen:
+            st.warning("Pick at least one detector.")
+        else:
+            carrier = CARRIERS / row["file"]
+            text = carrier.read_text(encoding="utf-8", errors="replace") if carrier.exists() else str(row["value"])
+            try:
+                finds = nf.scan(text, chosen, conf)
+            except nf.ScanError as e:
+                st.error(f"scan failed (network?): {e}")
+                finds = None
+            if finds is not None:
+                caught = sorted({f["detector_name"] for f in finds if _dp_overlap(f["finding"], row["value"])})
+                if caught:
+                    st.success(f"This data point **was caught** by: {', '.join(caught)}")
+                else:
+                    st.info("This data point was **not caught** by the selected detector(s) "
+                            "(evasive value, wrong detector, or correctly ignored near-miss).")
+                if finds:
+                    st.dataframe(pd.DataFrame([{
+                        "detector": f["detector_name"], "finding": str(f["finding"])[:60],
+                        "confidence": f["confidence"], "start": f["start_index"], "end": f["end_index"],
+                    } for f in finds]), width="stretch", hide_index=True)
+                else:
+                    st.caption("No findings returned for the selected detector(s) on this carrier.")
+
+
 # ---- header + copilot-drivable view nav ------------------------------------
 st.title(f"🛡️  {company} — DLP demo data")
 meta = f"session `{sid}`" if sid else SESSION_DIR.name
@@ -407,5 +497,5 @@ st.divider()
 
 RENDERERS = {"Demo overview": render_overview, "Leaks in context": render_leaks,
              "Coverage & diversity": render_coverage, "Planted index": render_index,
-             "Research & decisions": render_research}
+             "Research & decisions": render_research, "Detector results": render_detector_results}
 _ = RENDERERS.get(ss[vc.K_VIEW], render_overview)()

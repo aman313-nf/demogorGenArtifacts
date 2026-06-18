@@ -1,0 +1,472 @@
+{
+  "endpoint": "https://playground.nightfall.ai/scan",
+  "min_confidence_levels": [
+    "POSSIBLE",
+    "LIKELY",
+    "VERY_LIKELY"
+  ],
+  "note": "Nightfall playground detectors callable via the public /scan endpoint (no auth). ui=true are surfaced on playground.nightfall.ai; the rest are glossary detectors the backend still honors. Invalid detector values 500 the request, so only send values from this list.",
+  "detectors": [
+    {
+      "value": "AMERICAN_BANKERS_CUSIP_ID",
+      "label": "American Bankers CUSIP ID",
+      "ui": false
+    },
+    {
+      "value": "API_KEY",
+      "label": "API Key",
+      "ui": true,
+      "category": "Secrets",
+      "description": "Detects API keys, credentials needed to authenticate and authorize a cloud provider\u2019s API request. Findings will include the vendor name and active key validation for the most popular services."
+    },
+    {
+      "value": "AUSTRALIA_DRIVERS_LICENSE_NUMBER",
+      "label": "Australia Driver's License Number",
+      "ui": false
+    },
+    {
+      "value": "AUSTRALIA_MEDICARE_NUMBER",
+      "label": "Australia Medicare Number",
+      "ui": false
+    },
+    {
+      "value": "AUSTRALIA_PASSPORT",
+      "label": "Australia Passport",
+      "ui": false
+    },
+    {
+      "value": "AUSTRALIA_TAX_FILE_NUMBER",
+      "label": "Australia Tax File Number",
+      "ui": false
+    },
+    {
+      "value": "BRAZIL_BUSINESS_TAX_ID_NUMBER",
+      "label": "Brazil Business Tax ID Number",
+      "ui": false
+    },
+    {
+      "value": "BRAZIL_CPF_NUMBER",
+      "label": "Brazil CPF Number",
+      "ui": false
+    },
+    {
+      "value": "BRAZIL_DRIVERS_LICENSE_NUMBER",
+      "label": "Brazil Driver's License Number",
+      "ui": false
+    },
+    {
+      "value": "BRAZIL_NATIONAL_ID_CARD_NUMBER_RG",
+      "label": "Brazil National ID Card Number (RG)",
+      "ui": false
+    },
+    {
+      "value": "BRAZIL_PASSPORT_NUMBER",
+      "label": "Brazil Passport Number",
+      "ui": false
+    },
+    {
+      "value": "CANADA_BANK_ACCOUNT",
+      "label": "Canada Bank Account",
+      "ui": false
+    },
+    {
+      "value": "CANADA_BC_PHN",
+      "label": "Canada BC Personal Health Number",
+      "ui": false
+    },
+    {
+      "value": "CANADA_DRIVERS_LICENSE_NUMBER",
+      "label": "Canada Driver's License Number",
+      "ui": false
+    },
+    {
+      "value": "CANADA_GOVERNMENT_ID",
+      "label": "Canada Government ID",
+      "ui": false
+    },
+    {
+      "value": "CANADA_OHIP",
+      "label": "Canada Ontario Health Insurance Plan",
+      "ui": false
+    },
+    {
+      "value": "CANADA_PASSPORT",
+      "label": "Canada Passport",
+      "ui": false
+    },
+    {
+      "value": "CANADA_PERMANENT_RESIDENT_NUMBER",
+      "label": "Canada Permanent Resident Number",
+      "ui": false
+    },
+    {
+      "value": "CANADA_QUEBEC_HIN",
+      "label": "Canada Quebec Health Insurance Number",
+      "ui": false
+    },
+    {
+      "value": "CANADA_SOCIAL_INSURANCE_NUMBER",
+      "label": "Canada Social Insurance Number",
+      "ui": false
+    },
+    {
+      "value": "COLOMBIA_INDIVIDUAL_TAX_ID_NUMBER",
+      "label": "Colombia Individual Tax ID Number",
+      "ui": false
+    },
+    {
+      "value": "COLOMBIA_PASSPORT_NUMBER",
+      "label": "Colombia Passport Number",
+      "ui": false
+    },
+    {
+      "value": "CREDIT_CARD_IMAGE",
+      "label": "Credit Card Image",
+      "ui": false
+    },
+    {
+      "value": "CREDIT_CARD_NUMBER",
+      "label": "Credit Card Number",
+      "ui": true,
+      "category": "Finance - PCI",
+      "description": "Detects credit card numbers, validated using the Luhn algorithm."
+    },
+    {
+      "value": "CRYPTOGRAPHIC_KEY",
+      "label": "Cryptographic Key",
+      "ui": true,
+      "category": "Secrets",
+      "description": "Detects private cryptographic keys."
+    },
+    {
+      "value": "DATABASE_CONNECTION_STRING",
+      "label": "Database Connection String",
+      "ui": true,
+      "category": "Secrets",
+      "description": "Detects a database connection string."
+    },
+    {
+      "value": "DATE_OF_BIRTH",
+      "label": "Date of Birth",
+      "ui": true,
+      "category": "Common Entities",
+      "description": "Detects a date associated with a person's birth."
+    },
+    {
+      "value": "DRIVERS_LICENSE_IMAGE",
+      "label": "Driver's License Image",
+      "ui": false
+    },
+    {
+      "value": "EMAIL_ADDRESS",
+      "label": "Email Address",
+      "ui": true,
+      "category": "Common Entities",
+      "description": "Detects valid e-mail addresses. As a very commonly used infotype, we recommend that you only use it in combination with another detector OR with a minimum findings count greater than or equal to 10."
+    },
+    {
+      "value": "FDA_NATIONAL_DRUG_NAME",
+      "label": "FDA National Drug Name",
+      "ui": false
+    },
+    {
+      "value": "FRANCE_CNI",
+      "label": "France CNI",
+      "ui": false
+    },
+    {
+      "value": "FRANCE_INSEE",
+      "label": "France INSEE",
+      "ui": false
+    },
+    {
+      "value": "FRANCE_PASSPORT",
+      "label": "France Passport",
+      "ui": false
+    },
+    {
+      "value": "GERMANY_IDENTITY_NUMBER",
+      "label": "Germany Identity Number",
+      "ui": false
+    },
+    {
+      "value": "GERMANY_PASSPORT",
+      "label": "Germany Passport",
+      "ui": false
+    },
+    {
+      "value": "IBAN_CODE",
+      "label": "IBAN Code",
+      "ui": true,
+      "category": "Finance - Banking",
+      "description": "Detects International Bank Account Number (IBAN) codes."
+    },
+    {
+      "value": "ICD10_CODE",
+      "label": "ICD10 Code",
+      "ui": true,
+      "category": "Healthcare",
+      "description": "Detects ICD10 codes (International Classification of Diseases, Tenth Revision)."
+    },
+    {
+      "value": "ICD10_DIAGNOSIS_DESCRIPTION",
+      "label": "ICD10 Diagnosis Description",
+      "ui": true,
+      "category": "Healthcare",
+      "description": "Detects ICD10 diagnoses or procedures."
+    },
+    {
+      "value": "IMEI_HARDWARE_ID",
+      "label": "IMEI Hardware ID",
+      "ui": true,
+      "category": "Hardware / Network",
+      "description": "Detects an International Mobile Equipment Identity (IMEI) ID, a unique identification number programmed into GSM and UMTS mobile devices."
+    },
+    {
+      "value": "INDIA_AADHAAR_INDIVIDUAL",
+      "label": "India Aadhaar Individual",
+      "ui": false
+    },
+    {
+      "value": "INDIA_PAN_INDIVIDUAL",
+      "label": "India PAN Individual",
+      "ui": false
+    },
+    {
+      "value": "IP_ADDRESS",
+      "label": "IP Address",
+      "ui": true,
+      "category": "Hardware / Network",
+      "description": "Detects an internet protocol (IP) network address. This detector supports both IPv4 and IPv6 addresses."
+    },
+    {
+      "value": "IRELAND_PASSPORT",
+      "label": "Ireland Passport",
+      "ui": false
+    },
+    {
+      "value": "IRELAND_PPSN",
+      "label": "Ireland PPSN",
+      "ui": false
+    },
+    {
+      "value": "MAC_ADDRESS",
+      "label": "MAC Address",
+      "ui": true,
+      "category": "Hardware / Network",
+      "description": "Detects a MAC address, a 12-digit hexadecimal value used to identify a network adapter. MAC stands for Media Access Control."
+    },
+    {
+      "value": "MEXICO_BUSINESS_TAX_ID_NUMBER",
+      "label": "Mexico Business Tax ID Number",
+      "ui": false
+    },
+    {
+      "value": "MEXICO_INDIVIDUAL_TAX_ID_NUMBER",
+      "label": "Mexico Individual Tax ID Number",
+      "ui": false
+    },
+    {
+      "value": "MEXICO_NATIONAL_ID_CARD_NUMBER",
+      "label": "Mexico National ID Card Number",
+      "ui": false
+    },
+    {
+      "value": "MEXICO_PASSPORT_NUMBER",
+      "label": "Mexico Passport Number",
+      "ui": false
+    },
+    {
+      "value": "PASSPORT_IMAGE",
+      "label": "Passport Image",
+      "ui": false
+    },
+    {
+      "value": "PASSWORD_IN_CODE",
+      "label": "Password in Code",
+      "ui": true,
+      "category": "Secrets",
+      "description": "Detects passwords written in code or shared in natural language contexts such as messages, sentences, and paragraphs."
+    },
+    {
+      "value": "PERSON_NAME",
+      "label": "Person Name",
+      "ui": true,
+      "category": "Common Entities",
+      "description": "Detects a person's name, including first, middle, and last names."
+    },
+    {
+      "value": "PHONE_NUMBER",
+      "label": "Phone Number",
+      "ui": true,
+      "category": "Common Entities",
+      "description": "Detects a US phone number. The number can include an area code and country code."
+    },
+    {
+      "value": "PROTECTED_HEALTH_INFORMATION",
+      "label": "Protected Health Information",
+      "ui": true,
+      "category": "Healthcare",
+      "description": "Detects protected health information (PHI) by identifying combinations of patient-related entities such as personally identifiable information (PII) and health indicators in contexts directly related to patient care."
+    },
+    {
+      "value": "SCOTLAND_COMMUNITY_HEALTH_INDEX_NUMBER",
+      "label": "Scotland Community Health Index Number",
+      "ui": false
+    },
+    {
+      "value": "STREET_ADDRESS",
+      "label": "Street Address",
+      "ui": true,
+      "category": "Common Entities",
+      "description": "Detects street addresses including a street number, street name, city, state, and zip code."
+    },
+    {
+      "value": "SWIFT_CODE",
+      "label": "SWIFT Code",
+      "ui": true,
+      "category": "Finance - Banking",
+      "description": "Detects SWIFT (Society for Worldwide Interbank Financial Telecommunication) codes."
+    },
+    {
+      "value": "UK_DRIVERS_LICENSE_NUMBER",
+      "label": "UK Driver's License Number",
+      "ui": false
+    },
+    {
+      "value": "UK_ELECTORAL_ROLL_NUMBER",
+      "label": "UK Electoral Roll Number",
+      "ui": false
+    },
+    {
+      "value": "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+      "label": "UK National Health Service Number",
+      "ui": false
+    },
+    {
+      "value": "UK_NATIONAL_INSURANCE_NUMBER",
+      "label": "UK National Insurance Number",
+      "ui": false
+    },
+    {
+      "value": "UK_PASSPORT",
+      "label": "UK Passport",
+      "ui": false
+    },
+    {
+      "value": "UK_TAXPAYER_REFERENCE",
+      "label": "UK Taxpayer Reference",
+      "ui": false
+    },
+    {
+      "value": "US_BANK_ROUTING_MICR",
+      "label": "US Bank Routing MICR",
+      "ui": true,
+      "category": "Finance - Banking",
+      "description": "Detects bank routing numbers, a 9-digit code used to identify a financial institution in monetary transactions."
+    },
+    {
+      "value": "US_DRIVERS_LICENSE_NUMBER",
+      "label": "US Driver's License Number",
+      "ui": true,
+      "category": "PII - US & Canada",
+      "description": "Detects US driver license number, a 16-character alphanumeric string."
+    },
+    {
+      "value": "US_EMPLOYER_IDENTIFICATION_NUMBER",
+      "label": "US Employer Identification Number",
+      "ui": false
+    },
+    {
+      "value": "US_HEALTHCARE_NPI",
+      "label": "US Healthcare NPI",
+      "ui": false
+    },
+    {
+      "value": "US_HEALTH_INSURANCE_CLAIM_NUMBER",
+      "label": "US Health Insurance Claim Number",
+      "ui": true,
+      "category": "PII - US & Canada",
+      "description": "Detects US health insurance claim number (HCIN), used as a Medicare identifier."
+    },
+    {
+      "value": "US_INDIVIDUAL_TAXPAYER_IDENTIFICATION_NUMBER",
+      "label": "US Individual Taxpayer Identification Number",
+      "ui": true,
+      "category": "PII - US & Canada",
+      "description": "Detects a US individual taxpayer identification number (ITIN), a 9-digit numeric string."
+    },
+    {
+      "value": "US_MEDICARE_BENEFICIARY_IDENTIFIER",
+      "label": "US Medicare Beneficiary Identifier",
+      "ui": false
+    },
+    {
+      "value": "US_PASSPORT",
+      "label": "US Passport",
+      "ui": false
+    },
+    {
+      "value": "US_SOCIAL_SECURITY_CARD_IMAGE",
+      "label": "US Social Security Card Image",
+      "ui": false
+    },
+    {
+      "value": "US_SOCIAL_SECURITY_NUMBER",
+      "label": "US Social Security Number",
+      "ui": true,
+      "category": "PII - US & Canada",
+      "description": "Detects US social security number (SSN), a 9-digit numeric string."
+    },
+    {
+      "value": "US_VEHICLE_IDENTIFICATION_NUMBER",
+      "label": "US Vehicle Identification Number",
+      "ui": true,
+      "category": "PII - US & Canada",
+      "description": "Detects US vehicle identification number, a 17-character alphanumeric string used to identify a motor vehicle uniquely."
+    }
+  ],
+  "data_type_map": {
+    "ssn": "US_SOCIAL_SECURITY_NUMBER",
+    "credit_card_visa": "CREDIT_CARD_NUMBER",
+    "credit_card_mastercard": "CREDIT_CARD_NUMBER",
+    "credit_card_amex": "CREDIT_CARD_NUMBER",
+    "credit_card_discover": "CREDIT_CARD_NUMBER",
+    "email": "EMAIL_ADDRESS",
+    "phone": "PHONE_NUMBER",
+    "full_name": "PERSON_NAME",
+    "drivers_license": "US_DRIVERS_LICENSE_NUMBER",
+    "dob": "DATE_OF_BIRTH",
+    "street_address": "STREET_ADDRESS",
+    "address": "STREET_ADDRESS",
+    "db_connection_string": "DATABASE_CONNECTION_STRING",
+    "rsa_private_key": "CRYPTOGRAPHIC_KEY",
+    "openai_key": "API_KEY",
+    "github_pat": "API_KEY",
+    "google_api_key": "API_KEY",
+    "aws_access_key": "API_KEY",
+    "aws_secret_key": "API_KEY",
+    "slack_bot_token": "API_KEY",
+    "stripe_live_key": "API_KEY",
+    "stripe_pub_key": "API_KEY",
+    "iban": "IBAN_CODE",
+    "us_routing": "US_BANK_ROUTING_MICR",
+    "icd10": "ICD10_CODE",
+    "npi": "US_HEALTHCARE_NPI",
+    "passport_us": "US_PASSPORT",
+    "placeholder_key": "API_KEY",
+    "internal_id_like_ssn": "US_SOCIAL_SECURITY_NUMBER",
+    "order_id_like_pan": "CREDIT_CARD_NUMBER",
+    "jwt": null,
+    "bank_account": null,
+    "cvv": null,
+    "card_expiry": null,
+    "mrn": null,
+    "insurance_member_id": null,
+    "uuid4": null,
+    "git_sha": null,
+    "device_serial_like_mrn": null,
+    "lab_eval_rubric": null,
+    "contract_terms": null
+  }
+}

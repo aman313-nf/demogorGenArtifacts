@@ -41,8 +41,18 @@ quiet hosting).
 ```
 app.py                 # the read-only viewer
 view_contract.py       # shared UI constants (view names + state keys)
+nf_playground.py       # stdlib client for the public Nightfall /scan API (no auth)
+detectors.json         # the callable detector set + data_type→detector map
 requirements.txt · .streamlit/config.toml
 sessions/
-  apollo-io/           # a demo session: PLANTED_INDEX.csv, carriers/, research.json, session.json, ...
+  apollo-io/           # a demo session: PLANTED_INDEX.csv, carriers/, research.json,
+                       #   detector_results.json (its own report card), session.json, ...
+  handshake-ai/
   <next-prospect>/     # add more here; the picker lists them automatically
 ```
+
+**Detector results tab:** each session ships its own `detector_results.json`
+(baked report card: detected / missed / fired-on-FP / not-integrated). The tab
+also has a **manual runner** — pick any data point + detector(s) and scan live
+against `playground.nightfall.ai/scan` (public, no auth; works on Streamlit Cloud,
+no secrets needed).

@@ -1,0 +1,1614 @@
+{
+  "scanned_at": "2026-06-18T10:03:30+00:00",
+  "endpoint": "https://playground.nightfall.ai/scan",
+  "min_confidence": "POSSIBLE",
+  "summary": {
+    "detected": 40,
+    "missed": 22,
+    "not_integrated": 23,
+    "false_positive": 0,
+    "correctly_quiet": 14,
+    "scan_error": 0,
+    "recall_pct": 64.5,
+    "precision_quiet_pct": 100.0
+  },
+  "items": [
+    {
+      "file": "ai-platform.env",
+      "location": "OPENAI_API_KEY",
+      "data_type": "openai_key",
+      "value": "sk-proj-OhbVrpoiVgRV5IfLBcbfnoGMbJmTPSIAoCLrZ3aWZkSBvrjn",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "sk-proj-OhbVrpoiVgRV5IfLBcbfnoGMbJmTPSIAoCLrZ3aWZkSBvrjn",
+      "status": "detected"
+    },
+    {
+      "file": "ai-platform.env",
+      "location": "ATLAS_LABS_API_KEY",
+      "data_type": "openai_key",
+      "value": "sk-proj-9Wvgfygw2wMqZcUDIh7yfJs1ON43xKmTecQoXsf2o3gyrDO1",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "sk-proj-9Wvgfygw2wMqZcUDIh7yfJs1ON43xKmTecQoXsf2o3gyrDO1",
+      "status": "detected"
+    },
+    {
+      "file": "ai-platform.env",
+      "location": "AWS_SECRET_ACCESS_KEY",
+      "data_type": "aws_secret_key",
+      "value": "PhDeOZIiBOB_Y6sHrFH2ZUCr_lgotu2iXW7GboIR",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "PhDeOZIiBOB_Y6sHrFH2ZUCr_lgotu2iXW7GboIR",
+      "status": "detected"
+    },
+    {
+      "file": "ai-platform.env",
+      "location": "DATABASE_URL",
+      "data_type": "db_connection_string",
+      "value": "postgres://svc_hsbkda:9U4UqGWlG6g3Ot1O@db-gmmj.internal:5432/prod",
+      "detection_challenge": "straightforward",
+      "detector": "DATABASE_CONNECTION_STRING",
+      "detector_label": "Database Connection String",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "ai-platform.env",
+      "location": "EXAMPLE_KEY",
+      "data_type": "placeholder_key",
+      "value": "YOUR_API_KEY_HERE",
+      "detection_challenge": "fp_near_miss",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "settings.py",
+      "location": "SLACK_BOT_TOKEN",
+      "data_type": "slack_bot_token",
+      "value": "xoxb-279368618081-757132452561-uFbh7x41Ztpdp4K8ffUF0eWI",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "xoxb-279368618081-757132452561-uFbh7x41Ztpdp4K8ffUF0eWI",
+      "status": "detected"
+    },
+    {
+      "file": "settings.py",
+      "location": "INTERNAL_JWT",
+      "data_type": "jwt",
+      "value": "qq8vH2BzNZV45pFCiRcDCajhDieQjEJ-Bq8F.80ymm3T207gmhZRnFyy5r2xJ7Fj4mgblEv0-9BZhvWaXH6K2-tyLBhhOhg9uhkxiiEZpFfk1OHAOEHYq.M6Ojb6mjBHqSiFVKu4MbMnrHontIKARAH-Ggl2JfaQq",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "settings.py",
+      "location": "PINNED_MODEL_COMMIT",
+      "data_type": "git_sha",
+      "value": "85ed03241b4d419b1b673bd4755d05ad7853c1f7",
+      "detection_challenge": "fp_near_miss",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "atlas-labs-meridian_eval.json",
+      "location": "rubric",
+      "data_type": "lab_eval_rubric",
+      "value": "Project Meridian rubric v3 (CONFIDENTIAL \u2014 Atlas Labs): scor\u2026",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "atlas-labs-meridian_eval.json",
+      "location": "expert_answer",
+      "data_type": "full_name",
+      "value": "Mei Choi",
+      "detection_challenge": "fn_evasive",
+      "detector": "PERSON_NAME",
+      "detector_label": "Person Name",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "Mei Choi",
+      "status": "detected"
+    },
+    {
+      "file": "atlas-labs-meridian_eval.json",
+      "location": "expert_answer",
+      "data_type": "openai_key",
+      "value": "sk-proj-Qmzvr3e9XrwPGzR1Iv8bh4qlL9qcgMBwUYuBMGhy5KmqcTBa",
+      "detection_challenge": "fn_evasive",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "sk-proj-Qmzvr3e9XrwPGzR1Iv8bh4qlL9qcgMBwUYuBMGhy5KmqcTBa",
+      "status": "detected"
+    },
+    {
+      "file": "atlas-labs-meridian_eval.json",
+      "location": "dataset_content_hash",
+      "data_type": "git_sha",
+      "value": "6bd2aa399dac946dc59c0996daeee6f529a27976",
+      "detection_challenge": "fp_near_miss",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "eval-pipeline_slack.txt",
+      "location": "Mei message",
+      "data_type": "github_pat",
+      "value": "ghp_EN2XeDA4OKmTSyFzpjPSa5W3X4gXBolZ9SHD",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "eval-pipeline_slack.txt",
+      "location": "Dana message",
+      "data_type": "lab_eval_rubric",
+      "value": "Project Meridian rubric (held-out medical benchmark)\u2026",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "eval-pipeline_slack.txt",
+      "location": "Mei message 2",
+      "data_type": "openai_key",
+      "value": "c2stcHJvai1kSnA2MmhEaVpEUUhKTXU4VzVDTjBVNUdCMTZKQzVrVjNFQ3FXcDFPclhYSEZPcHI=",
+      "detection_challenge": "fn_evasive",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "c2stcHJvai1kSnA2MmhEaVpEUUhKTXU4VzVDTjBVNUdCMTZKQzVrVjNFQ3FXcDFPclhYSEZPcHI=",
+      "status": "detected"
+    },
+    {
+      "file": "eval-pipeline_slack.txt",
+      "location": "Raj message",
+      "data_type": "uuid4",
+      "value": "49257af1-b6aa-405b-93d5-f2f7709b7d97",
+      "detection_challenge": "fp_near_miss",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "ci-build.log",
+      "location": "export line",
+      "data_type": "aws_secret_key",
+      "value": "EIQOkrtDXtBi10Q71hA1XcW9aTMX1C-CI3-dXRZv",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "EIQOkrtDXtBi10Q71hA1XcW9aTMX1C-CI3-dXRZv",
+      "status": "detected"
+    },
+    {
+      "file": "ci-build.log",
+      "location": "heredoc",
+      "data_type": "openai_key",
+      "value": "sk-proj-1D6iNIb6zLKQbfPBi3Dl\\ndqyunDuvW4yrW81Aq1fEbVId8woP",
+      "detection_challenge": "fn_evasive",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "ci-build.log",
+      "location": "build id",
+      "data_type": "git_sha",
+      "value": "210760474f36e8b5359309cc6273931bdb2a0df3",
+      "detection_challenge": "fp_near_miss",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "atlas-deploy_service-account.json",
+      "location": "private_key",
+      "data_type": "rsa_private_key",
+      "value": "-----BEGIN RSA PRIVATE KEY-----\n3U6t3wI973IPFlJ5F7\u2026",
+      "detection_challenge": "straightforward",
+      "detector": "CRYPTOGRAPHIC_KEY",
+      "detector_label": "Cryptographic Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "-----BEGIN RSA PRIVATE KEY-----\\n3U6t3wI973IPFlJ5F7WRd_Px-BTHRJJbykE0-E8-5clLCZFNV8S2QT6INGDpyOpx\\nyB9JKmyLDUwMbqJfgLq-nbK894RxgG9oiZ-jgttMkFp1CW54M2NhmABHkuEwjua0\\n58LeDKK6jDHz2oCtIsjhvNK4p7MZI_4kf3PGdlDcIfw84Jx3-l8S0QPnuQ0_KZe6\\nlOGPoZa70gyU_4gAIqK4-pdEuNb0lCo7pt_LI198F6sXyriJ1RIaKM-t59SQW6Py\\nEXD0fO8WXt_eqQm4m6bs0tj8HRYkQWO-eiEKDl3mm4vMdfPhLTV3sF0xvwkWE_sD\\n7G6Gb7Kuj4SM2G6MzX9nEWTLLcYJbg_KDTCyGrmfN4eUqlLP1wzqUIvG9LRo7jsC\\n-----END RSA PRIVATE KEY-----",
+      "status": "detected"
+    },
+    {
+      "file": "atlas-deploy_service-account.json",
+      "location": "maps_api_key",
+      "data_type": "google_api_key",
+      "value": "AIza3RURz92ZJxfYzaqIhDxRVRqLy0O8xgRoEbN",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "AIza3RURz92ZJxfYzaqIhDxRVRqLy0O8xgRoEbN",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "tin_ssn r1",
+      "data_type": "ssn",
+      "value": "651-60-4952",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "651-60-4952",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "bank_account r1",
+      "data_type": "bank_account",
+      "value": "12004711382",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "routing r1",
+      "data_type": "us_routing",
+      "value": "675869265",
+      "detection_challenge": "straightforward",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": "LIKELY",
+      "matched_finding": "675869265",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "expert_id r1",
+      "data_type": "internal_id_like_ssn",
+      "value": "EXP-674-51-4626",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "tin_ssn r2",
+      "data_type": "ssn",
+      "value": "3802 8726 5",
+      "detection_challenge": "fn_evasive",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "bank_account r2",
+      "data_type": "bank_account",
+      "value": "35158506431",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "routing r2",
+      "data_type": "us_routing",
+      "value": "713900536",
+      "detection_challenge": "straightforward",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": "LIKELY",
+      "matched_finding": "713900536",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "expert_id r2",
+      "data_type": "internal_id_like_ssn",
+      "value": "EXP-201-72-7686",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "tin_ssn r3",
+      "data_type": "ssn",
+      "value": "213-76-3539",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "213-76-3539",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "bank_account r3",
+      "data_type": "bank_account",
+      "value": "529042284",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "routing r3",
+      "data_type": "us_routing",
+      "value": "210205394",
+      "detection_challenge": "straightforward",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": "LIKELY",
+      "matched_finding": "210205394",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "expert_id r3",
+      "data_type": "internal_id_like_ssn",
+      "value": "EXP-905-82-4362",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "tin_ssn r4",
+      "data_type": "ssn",
+      "value": "432-68-1863",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "432-68-1863",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "bank_account r4",
+      "data_type": "bank_account",
+      "value": "77589178",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "routing r4",
+      "data_type": "us_routing",
+      "value": "390847009",
+      "detection_challenge": "straightforward",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "expert_id r4",
+      "data_type": "internal_id_like_ssn",
+      "value": "EXP-116-32-5347",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "tin_ssn r5",
+      "data_type": "ssn",
+      "value": "503-92-7268",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "503-92-7268",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "bank_account r5",
+      "data_type": "bank_account",
+      "value": "15921249",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "routing r5",
+      "data_type": "us_routing",
+      "value": "985698472",
+      "detection_challenge": "straightforward",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "expert_id r5",
+      "data_type": "internal_id_like_ssn",
+      "value": "EXP-967-61-7984",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "tin_ssn r6",
+      "data_type": "ssn",
+      "value": "565-93-3523",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "565-93-3523",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "bank_account r6",
+      "data_type": "bank_account",
+      "value": "73657661565",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "routing r6",
+      "data_type": "us_routing",
+      "value": "452711112",
+      "detection_challenge": "straightforward",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "expert_id r6",
+      "data_type": "internal_id_like_ssn",
+      "value": "EXP-719-65-2624",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "tin_ssn r7",
+      "data_type": "ssn",
+      "value": "601-72-9203",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "601-72-9203",
+      "status": "detected"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "bank_account r7",
+      "data_type": "bank_account",
+      "value": "1656049451",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "routing r7",
+      "data_type": "us_routing",
+      "value": "983273158",
+      "detection_challenge": "straightforward",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "expert_payouts.csv",
+      "location": "expert_id r7",
+      "data_type": "internal_id_like_ssn",
+      "value": "EXP-198-57-3131",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "school_email r1",
+      "data_type": "email",
+      "value": "nandersson29@umich.edu",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "nandersson29@umich.edu",
+      "status": "detected"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "dob r1",
+      "data_type": "dob",
+      "value": "07/28/1985",
+      "detection_challenge": "straightforward",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "school_email r2",
+      "data_type": "email",
+      "value": "klindqvist85@stanford.edu",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "klindqvist85@stanford.edu",
+      "status": "detected"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "dob r2",
+      "data_type": "dob",
+      "value": "12/09/1951",
+      "detection_challenge": "straightforward",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "school_email r3",
+      "data_type": "email",
+      "value": "olarsson24@umich.edu",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "olarsson24@umich.edu",
+      "status": "detected"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "dob r3",
+      "data_type": "dob",
+      "value": "03/19/1992",
+      "detection_challenge": "straightforward",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "student_id r3",
+      "data_type": "internal_id_like_ssn",
+      "value": "STU-447-54-1100",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "school_email r4",
+      "data_type": "email",
+      "value": "lschmidt4@berkeley.edu",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "lschmidt4@berkeley.edu",
+      "status": "detected"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "dob r4",
+      "data_type": "dob",
+      "value": "02/24/1983",
+      "detection_challenge": "straightforward",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "school_email r5",
+      "data_type": "email",
+      "value": "wnakamura44@uw.edu",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "wnakamura44@uw.edu",
+      "status": "detected"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "dob r5",
+      "data_type": "dob",
+      "value": "03/12/1969",
+      "detection_challenge": "straightforward",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "school_email r6",
+      "data_type": "email",
+      "value": "mfischer20@mit.edu",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "mfischer20@mit.edu",
+      "status": "detected"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "dob r6",
+      "data_type": "dob",
+      "value": "03/25/1989",
+      "detection_challenge": "straightforward",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "school_email r7",
+      "data_type": "email",
+      "value": "dkowalski85@umich.edu",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "dkowalski85@umich.edu",
+      "status": "detected"
+    },
+    {
+      "file": "students_export.csv",
+      "location": "dob r7",
+      "data_type": "dob",
+      "value": "07/16/1988",
+      "detection_challenge": "straightforward",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "contractor_onboarding.eml",
+      "location": "body TIN",
+      "data_type": "ssn",
+      "value": "4535 4447 6",
+      "detection_challenge": "fn_evasive",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "contractor_onboarding.eml",
+      "location": "body account",
+      "data_type": "bank_account",
+      "value": "8156-1497-8",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn r1",
+      "data_type": "ssn",
+      "value": "047-29-6476",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "047-29-6476",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "direct_deposit r1",
+      "data_type": "bank_account",
+      "value": "432445107",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "drivers_license r1",
+      "data_type": "drivers_license",
+      "value": "X6226838",
+      "detection_challenge": "straightforward",
+      "detector": "US_DRIVERS_LICENSE_NUMBER",
+      "detector_label": "US Driver's License Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn r2",
+      "data_type": "ssn",
+      "value": "044-56-0308",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "044-56-0308",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "direct_deposit r2",
+      "data_type": "bank_account",
+      "value": "9696641605",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "drivers_license r2",
+      "data_type": "drivers_license",
+      "value": "F9751613",
+      "detection_challenge": "straightforward",
+      "detector": "US_DRIVERS_LICENSE_NUMBER",
+      "detector_label": "US Driver's License Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn r3",
+      "data_type": "ssn",
+      "value": "537-11-6485",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "537-11-6485",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "direct_deposit r3",
+      "data_type": "bank_account",
+      "value": "521818835",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "drivers_license r3",
+      "data_type": "drivers_license",
+      "value": "L2312432",
+      "detection_challenge": "straightforward",
+      "detector": "US_DRIVERS_LICENSE_NUMBER",
+      "detector_label": "US Driver's License Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn r4",
+      "data_type": "ssn",
+      "value": "182-99-8096",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "182-99-8096",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "direct_deposit r4",
+      "data_type": "bank_account",
+      "value": "799552717744",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "drivers_license r4",
+      "data_type": "drivers_license",
+      "value": "S0581477",
+      "detection_challenge": "straightforward",
+      "detector": "US_DRIVERS_LICENSE_NUMBER",
+      "detector_label": "US Driver's License Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn r5",
+      "data_type": "ssn",
+      "value": "294-10-1480",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "294-10-1480",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "direct_deposit r5",
+      "data_type": "bank_account",
+      "value": "79807935978",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "drivers_license r5",
+      "data_type": "drivers_license",
+      "value": "E0715182",
+      "detection_challenge": "straightforward",
+      "detector": "US_DRIVERS_LICENSE_NUMBER",
+      "detector_label": "US Driver's License Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn r6",
+      "data_type": "ssn",
+      "value": "450-68-8565",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "450-68-8565",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "direct_deposit r6",
+      "data_type": "bank_account",
+      "value": "4665905151",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "drivers_license r6",
+      "data_type": "drivers_license",
+      "value": "R6449251",
+      "detection_challenge": "straightforward",
+      "detector": "US_DRIVERS_LICENSE_NUMBER",
+      "detector_label": "US Driver's License Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "contact_email r1",
+      "data_type": "email",
+      "value": "marcus.volkov@initech.co",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "marcus.volkov@initech.co",
+      "status": "detected"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "opportunity_number r1",
+      "data_type": "order_id_like_pan",
+      "value": "5462914865281685",
+      "detection_challenge": "fp_near_miss",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "contact_email r2",
+      "data_type": "email",
+      "value": "hannah.acharya@umbrella-health.org",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "hannah.acharya@umbrella-health.org",
+      "status": "detected"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "opportunity_number r2",
+      "data_type": "order_id_like_pan",
+      "value": "2357332214188805",
+      "detection_challenge": "fp_near_miss",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "contact_email r3",
+      "data_type": "email",
+      "value": "camila.silva@initech.co",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "camila.silva@initech.co",
+      "status": "detected"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "opportunity_number r3",
+      "data_type": "order_id_like_pan",
+      "value": "2292706537947383",
+      "detection_challenge": "fp_near_miss",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "contact_email r4",
+      "data_type": "email",
+      "value": "andre.andersson@initech.co",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "andre.andersson@initech.co",
+      "status": "detected"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "opportunity_number r4",
+      "data_type": "order_id_like_pan",
+      "value": "7468862392407581",
+      "detection_challenge": "fp_near_miss",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "contact_email r5",
+      "data_type": "email",
+      "value": "diego.costa@umbrella-health.org",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "diego.costa@umbrella-health.org",
+      "status": "detected"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "opportunity_number r5",
+      "data_type": "order_id_like_pan",
+      "value": "7901043289861434",
+      "detection_challenge": "fp_near_miss",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "salesforce_opportunities.csv",
+      "location": "nda_terms r1",
+      "data_type": "contract_terms",
+      "value": "Project Meridian expert pool, exclusivity 18mo, held-out benchmark access",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "partnerships_meridian_nda.eml",
+      "location": "body key",
+      "data_type": "openai_key",
+      "value": "sk-proj-eh15FMIbOGKpTjsBaNwpKAlQQfHxe9HIGYGJby3EcOyxqVbw",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "LIKELY",
+      "matched_finding": "sk-proj-eh15FMIbOGKpTjsBaNwpKAlQQfHxe9HIGYGJby3EcOyxqVbw",
+      "status": "detected"
+    },
+    {
+      "file": "partnerships_meridian_nda.eml",
+      "location": "subject/body",
+      "data_type": "contract_terms",
+      "value": "Project Meridian integration \u2014 egress key (CONFIDENTIAL)",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "payout_support_ticket.txt",
+      "location": "requester message",
+      "data_type": "ssn",
+      "value": "247-94-1699",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "247-94-1699",
+      "status": "detected"
+    },
+    {
+      "file": "payout_support_ticket.txt",
+      "location": "requester message",
+      "data_type": "phone",
+      "value": "(796) 952-6447",
+      "detection_challenge": "straightforward",
+      "detector": "PHONE_NUMBER",
+      "detector_label": "Phone Number",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "(796) 952-6447",
+      "status": "detected"
+    }
+  ],
+  "by_file": {
+    "ai-platform.env": {
+      "detectors_sent": [
+        "API_KEY",
+        "DATABASE_CONNECTION_STRING"
+      ],
+      "findings": [
+        {
+          "detector_name": "API_KEY",
+          "finding": "sk-proj-OhbVrpoiVgRV5IfLBcbfnoGMbJmTPSIAoCLrZ3aWZkSBvrjn",
+          "confidence": "VERY_LIKELY",
+          "start_index": 68,
+          "end_index": 124
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "sk-proj-9Wvgfygw2wMqZcUDIh7yfJs1ON43xKmTecQoXsf2o3gyrDO1",
+          "confidence": "VERY_LIKELY",
+          "start_index": 144,
+          "end_index": 200
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "AKIAXKXWNREK8PK3YR9O",
+          "confidence": "LIKELY",
+          "start_index": 275,
+          "end_index": 295
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "PhDeOZIiBOB_Y6sHrFH2ZUCr_lgotu2iXW7GboIR",
+          "confidence": "VERY_LIKELY",
+          "start_index": 318,
+          "end_index": 358
+        }
+      ],
+      "error": null
+    },
+    "settings.py": {
+      "detectors_sent": [
+        "API_KEY"
+      ],
+      "findings": [
+        {
+          "detector_name": "API_KEY",
+          "finding": "xoxb-279368618081-757132452561-uFbh7x41Ztpdp4K8ffUF0eWI",
+          "confidence": "VERY_LIKELY",
+          "start_index": 109,
+          "end_index": 164
+        }
+      ],
+      "error": null
+    },
+    "atlas-labs-meridian_eval.json": {
+      "detectors_sent": [
+        "API_KEY",
+        "PERSON_NAME"
+      ],
+      "findings": [
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Clara Weber",
+          "confidence": "VERY_LIKELY",
+          "start_index": 457,
+          "end_index": 468
+        },
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Mei Choi",
+          "confidence": "VERY_LIKELY",
+          "start_index": 522,
+          "end_index": 530
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "sk-proj-Qmzvr3e9XrwPGzR1Iv8bh4qlL9qcgMBwUYuBMGhy5KmqcTBa",
+          "confidence": "VERY_LIKELY",
+          "start_index": 692,
+          "end_index": 748
+        }
+      ],
+      "error": null
+    },
+    "eval-pipeline_slack.txt": {
+      "detectors_sent": [
+        "API_KEY"
+      ],
+      "findings": [
+        {
+          "detector_name": "API_KEY",
+          "finding": "c2stcHJvai1kSnA2MmhEaVpEUUhKTXU4VzVDTjBVNUdCMTZKQzVrVjNFQ3FXcDFPclhYSEZPcHI=",
+          "confidence": "VERY_LIKELY",
+          "start_index": 481,
+          "end_index": 557
+        }
+      ],
+      "error": null
+    },
+    "ci-build.log": {
+      "detectors_sent": [
+        "API_KEY"
+      ],
+      "findings": [
+        {
+          "detector_name": "API_KEY",
+          "finding": "EIQOkrtDXtBi10Q71hA1XcW9aTMX1C-CI3-dXRZv",
+          "confidence": "VERY_LIKELY",
+          "start_index": 115,
+          "end_index": 155
+        }
+      ],
+      "error": null
+    },
+    "atlas-deploy_service-account.json": {
+      "detectors_sent": [
+        "API_KEY",
+        "CRYPTOGRAPHIC_KEY"
+      ],
+      "findings": [
+        {
+          "detector_name": "CRYPTOGRAPHIC_KEY",
+          "finding": "-----BEGIN RSA PRIVATE KEY-----\\n3U6t3wI973IPFlJ5F7WRd_Px-BTHRJJbykE0-E8-5clLCZFNV8S2QT6INGDpyOpx\\nyB9JKmyLDUwMbqJfgLq-nbK894RxgG9oiZ-jgttMkFp1CW54M2NhmABHkuEwjua0\\n58LeDKK6jDHz2oCtIsjhvNK4p7MZI_4kf3PGdlDcIfw84Jx3-l8S0QPnuQ0_KZe6\\nlOGPoZa70gyU_4gAIqK4-pdEuNb0lCo7pt_LI198F6sXyriJ1RIaKM-t59SQW6Py\\nEXD0fO8WXt_eqQm4m6bs0tj8HRYkQWO-eiEKDl3mm4vMdfPhLTV3sF0xvwkWE_sD\\n7G6Gb7Kuj4SM2G6MzX9nEWTLLcYJbg_KDTCyGrmfN4eUqlLP1wzqUIvG9LRo7jsC\\n-----END RSA PRIVATE KEY-----",
+          "confidence": "VERY_LIKELY",
+          "start_index": 86,
+          "end_index": 544
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "AIza3RURz92ZJxfYzaqIhDxRVRqLy0O8xgRoEbN",
+          "confidence": "VERY_LIKELY",
+          "start_index": 643,
+          "end_index": 682
+        }
+      ],
+      "error": null
+    },
+    "expert_payouts.csv": {
+      "detectors_sent": [
+        "US_BANK_ROUTING_MICR",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "651-60-4952",
+          "confidence": "LIKELY",
+          "start_index": 86,
+          "end_index": 97
+        },
+        {
+          "detector_name": "US_BANK_ROUTING_MICR",
+          "finding": "675869265",
+          "confidence": "LIKELY",
+          "start_index": 110,
+          "end_index": 119
+        },
+        {
+          "detector_name": "US_BANK_ROUTING_MICR",
+          "finding": "713900536",
+          "confidence": "LIKELY",
+          "start_index": 177,
+          "end_index": 186
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "213-76-3539",
+          "confidence": "LIKELY",
+          "start_index": 221,
+          "end_index": 232
+        },
+        {
+          "detector_name": "US_BANK_ROUTING_MICR",
+          "finding": "210205394",
+          "confidence": "LIKELY",
+          "start_index": 243,
+          "end_index": 252
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "432-68-1863",
+          "confidence": "LIKELY",
+          "start_index": 287,
+          "end_index": 298
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "503-92-7268",
+          "confidence": "LIKELY",
+          "start_index": 351,
+          "end_index": 362
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "565-93-3523",
+          "confidence": "LIKELY",
+          "start_index": 417,
+          "end_index": 428
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "601-72-9203",
+          "confidence": "LIKELY",
+          "start_index": 485,
+          "end_index": 496
+        }
+      ],
+      "error": null
+    },
+    "students_export.csv": {
+      "detectors_sent": [
+        "DATE_OF_BIRTH",
+        "EMAIL_ADDRESS",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "nandersson29@umich.edu",
+          "confidence": "VERY_LIKELY",
+          "start_index": 69,
+          "end_index": 91
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "klindqvist85@stanford.edu",
+          "confidence": "VERY_LIKELY",
+          "start_index": 147,
+          "end_index": 172
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "olarsson24@umich.edu",
+          "confidence": "VERY_LIKELY",
+          "start_index": 233,
+          "end_index": 253
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "lschmidt4@berkeley.edu",
+          "confidence": "VERY_LIKELY",
+          "start_index": 307,
+          "end_index": 329
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "wnakamura44@uw.edu",
+          "confidence": "VERY_LIKELY",
+          "start_index": 376,
+          "end_index": 394
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "mfischer20@mit.edu",
+          "confidence": "VERY_LIKELY",
+          "start_index": 449,
+          "end_index": 467
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "dkowalski85@umich.edu",
+          "confidence": "VERY_LIKELY",
+          "start_index": 508,
+          "end_index": 529
+        }
+      ],
+      "error": null
+    },
+    "contractor_onboarding.eml": {
+      "detectors_sent": [
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [],
+      "error": null
+    },
+    "employee_master.csv": {
+      "detectors_sent": [
+        "US_DRIVERS_LICENSE_NUMBER",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "047-29-6476",
+          "confidence": "LIKELY",
+          "start_index": 71,
+          "end_index": 82
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "044-56-0308",
+          "confidence": "LIKELY",
+          "start_index": 137,
+          "end_index": 148
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "537-11-6485",
+          "confidence": "LIKELY",
+          "start_index": 204,
+          "end_index": 215
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "182-99-8096",
+          "confidence": "LIKELY",
+          "start_index": 271,
+          "end_index": 282
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "294-10-1480",
+          "confidence": "LIKELY",
+          "start_index": 340,
+          "end_index": 351
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "450-68-8565",
+          "confidence": "LIKELY",
+          "start_index": 407,
+          "end_index": 418
+        }
+      ],
+      "error": null
+    },
+    "salesforce_opportunities.csv": {
+      "detectors_sent": [
+        "CREDIT_CARD_NUMBER",
+        "EMAIL_ADDRESS"
+      ],
+      "findings": [
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "marcus.volkov@initech.co",
+          "confidence": "VERY_LIKELY",
+          "start_index": 94,
+          "end_index": 118
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "hannah.acharya@umbrella-health.org",
+          "confidence": "VERY_LIKELY",
+          "start_index": 258,
+          "end_index": 292
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "camila.silva@initech.co",
+          "confidence": "VERY_LIKELY",
+          "start_index": 351,
+          "end_index": 374
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "andre.andersson@initech.co",
+          "confidence": "VERY_LIKELY",
+          "start_index": 435,
+          "end_index": 461
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "diego.costa@umbrella-health.org",
+          "confidence": "VERY_LIKELY",
+          "start_index": 521,
+          "end_index": 552
+        }
+      ],
+      "error": null
+    },
+    "partnerships_meridian_nda.eml": {
+      "detectors_sent": [
+        "API_KEY"
+      ],
+      "findings": [
+        {
+          "detector_name": "API_KEY",
+          "finding": "sk-proj-eh15FMIbOGKpTjsBaNwpKAlQQfHxe9HIGYGJby3EcOyxqVbw",
+          "confidence": "LIKELY",
+          "start_index": 262,
+          "end_index": 318
+        }
+      ],
+      "error": null
+    },
+    "payout_support_ticket.txt": {
+      "detectors_sent": [
+        "PHONE_NUMBER",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "247-94-1699",
+          "confidence": "VERY_LIKELY",
+          "start_index": 206,
+          "end_index": 217
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(796) 952-6447",
+          "confidence": "VERY_LIKELY",
+          "start_index": 235,
+          "end_index": 249
+        }
+      ],
+      "error": null
+    }
+  },
+  "errors": []
+}
