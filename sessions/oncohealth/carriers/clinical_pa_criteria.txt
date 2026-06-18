@@ -1,0 +1,15 @@
+OncoHealth OneUM — Clinical Prior-Authorization Criteria (v2026.2)
+NOT A PATIENT RECORD — internal clinical policy. Do not use as a member document.
+
+Lung (C34.x):
+  First-line therapy for metastatic non-small cell lung cancer with high PD-L1 expression; benign tumor and in-situ carcinoma criteria follow below.
+  Approve pembrolizumab monotherapy for C34.90 when PD-L1 TPS >= 50% (1L).
+  Approve pembrolizumab + carboplatin + paclitaxel for C34.90 regardless of PD-L1 (1L).
+
+Breast (C50.x):
+  Approve trastuzumab for C50.911 when HER2 IHC 3+ or ISH-amplified.
+
+Colorectal (C18.x / C20):
+  Approve bevacizumab for C18.9 and C20 in combination with FOLFOX.
+
+References: NCCN Guidelines. Codes listed are policy criteria, not diagnoses of any member.

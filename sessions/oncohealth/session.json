@@ -1,0 +1,104 @@
+{
+  "session_id": "oncohealth-21791a",
+  "company": "OncoHealth",
+  "created_at": "2026-06-18T16:27:10+00:00",
+  "updated_at": "2026-06-18T16:39:27+00:00",
+  "status": "generated",
+  "profile_summary": "OncoHealth \u2014 digital oncology management (OneUM prior-auth, Oncology Insights analytics, Iris telehealth). Holds the most sensitive PHI: cancer Dx + genomic markers + oncology mental-health notes (HIPAA/GINA). 12M+ lives; Arsenal Capital + McKesson. Demo spine: PA-packet & Iris free-text PHI leaks, context-aware-PHI-vs-naive-code precision, and coverage gaps (genomic, MRN, member IDs) + analytics re-identification.",
+  "config": {
+    "seed": 42,
+    "target_carriers": 7,
+    "surfaces": [
+      "Secure email / fax",
+      "Slack",
+      "Snowflake / payer feed",
+      "Confluence / Drive",
+      "Google Drive",
+      "GitHub"
+    ],
+    "categories": [
+      "PHI",
+      "PII",
+      "secret"
+    ],
+    "challenge_mix": {
+      "straightforward": 0.55,
+      "fp_near_miss": 0.21,
+      "fn_evasive": 0.24
+    },
+    "personas": [
+      "Iris oncology nurse (protagonist)",
+      "Oncology social worker",
+      "Peer mentor",
+      "Medical Director / UM reviewer",
+      "External submitting oncologist",
+      "Data scientist (Oncology Insights)",
+      "Platform engineer",
+      "HR"
+    ],
+    "lead_risks": [
+      "PA clinical packets (PHI)",
+      "Iris free-text PHI",
+      "criteria-library FP story",
+      "genomic / MRN / member-id coverage gaps",
+      "analytics re-identification"
+    ]
+  },
+  "planted_summary": {
+    "total": 32,
+    "by_category": {
+      "PHI": 24,
+      "secret": 4,
+      "PII": 4
+    },
+    "by_challenge": {
+      "straightforward": 17,
+      "fn_evasive": 8,
+      "fp_near_miss": 7
+    },
+    "surfaces": [
+      "Confluence / Drive",
+      "GitHub",
+      "Google Drive",
+      "Secure email / fax",
+      "Slack",
+      "Snowflake / payer feed"
+    ]
+  },
+  "manifest": [
+    "profile.md",
+    "generate.py",
+    "PLANTED_INDEX.csv",
+    "PLANTED_INDEX.md",
+    "dashboard.html",
+    "carriers/clinical_pa_criteria.txt",
+    "carriers/employee_master.csv",
+    "carriers/iris_care_team_slack.txt",
+    "carriers/member_roster_export.csv",
+    "carriers/platform-api.env",
+    "carriers/prior_auth_request.eml",
+    "carriers/research_export.eml"
+  ],
+  "pending": [
+    "Optional: add an X12 278/837 EDI prior-auth/claims carrier (the real payer-integration format) alongside the readable CSV roster.",
+    "Optional: add a faxed-intake OCR .txt carrier (messy PHI from scanned referrals) for an OCR-recall talking point.",
+    "Confirm Slack vs Microsoft Teams for the Iris care team; swap the surface if Teams.",
+    "Consider a small Iris consumer copay/PCI layer only if they confirm patient-facing billing."
+  ],
+  "provenance": {
+    "skill_version": "1.0",
+    "python": "3.11.15",
+    "seed": 42,
+    "generate_py_sha256": "f4ff63198c180def75bf9e4d67f06e7ef27d3b2b06a18a142b318309542e6402"
+  },
+  "decision_log": [
+    {
+      "ts": "2026-06-18T16:27:10+00:00",
+      "note": "session created"
+    },
+    {
+      "ts": "2026-06-18T16:39:27+00:00",
+      "note": "Generated full POC: 7 carriers, 32 plants (17 straightforward / 7 FP near-miss / 8 FN-evasive), PHI-led. Lead = oncology PA packet + Iris free-text PHI (cancer + suicidal ideation). Scan: recall 77.8%, precision-quiet 71.4%; the 2 FPs are the intentional criteria-library over-fire (ICD10/drug) vs PHI staying quiet on the same doc; genomic_marker/mrn/insurance_member_id are not_integrated coverage gaps. Tuned generator for detector reality: dedicated Iris carrier to PROTECTED_HEALTH_INFORMATION (component detectors suppress it when co-queried), valid NPIs (start 1/2), real C-code ICD-10s, dashed vs spaced SSNs. Extended shared detectors.json: phi_note/drug_name/diagnosis_desc mappings + genomic_marker/ndc gaps."
+    }
+  ]
+}

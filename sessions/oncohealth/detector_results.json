@@ -1,0 +1,758 @@
+{
+  "scanned_at": "2026-06-18T16:38:18+00:00",
+  "endpoint": "https://playground.nightfall.ai/scan",
+  "min_confidence": "POSSIBLE",
+  "summary": {
+    "detected": 14,
+    "missed": 4,
+    "not_integrated": 7,
+    "false_positive": 2,
+    "correctly_quiet": 5,
+    "scan_error": 0,
+    "recall_pct": 77.8,
+    "precision_quiet_pct": 71.4
+  },
+  "items": [
+    {
+      "file": "prior_auth_request.eml",
+      "location": "Patient field",
+      "data_type": "full_name",
+      "value": "Margaret Sullivan",
+      "detection_challenge": "straightforward",
+      "detector": "PERSON_NAME",
+      "detector_label": "Person Name",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "Margaret Sullivan",
+      "status": "detected"
+    },
+    {
+      "file": "prior_auth_request.eml",
+      "location": "DOB field",
+      "data_type": "dob",
+      "value": "03/14/1958",
+      "detection_challenge": "straightforward",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "03/14/1958",
+      "status": "detected"
+    },
+    {
+      "file": "prior_auth_request.eml",
+      "location": "Member ID field",
+      "data_type": "insurance_member_id",
+      "value": "BCBS043321819",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "prior_auth_request.eml",
+      "location": "MRN field",
+      "data_type": "mrn",
+      "value": "MRN-60013389",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "prior_auth_request.eml",
+      "location": "Diagnosis field",
+      "data_type": "icd10",
+      "value": "C50.911",
+      "detection_challenge": "straightforward",
+      "detector": "ICD10_CODE",
+      "detector_label": "ICD10 Code",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "C50.911",
+      "status": "detected"
+    },
+    {
+      "file": "prior_auth_request.eml",
+      "location": "regimen (clinical note)",
+      "data_type": "drug_name",
+      "value": "pembrolizumab",
+      "detection_challenge": "straightforward",
+      "detector": "FDA_NATIONAL_DRUG_NAME",
+      "detector_label": "FDA National Drug Name",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "pembrolizumab",
+      "status": "detected"
+    },
+    {
+      "file": "prior_auth_request.eml",
+      "location": "germline result (clinical note)",
+      "data_type": "genomic_marker",
+      "value": "BRCA1 pathogenic variant",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "prior_auth_request.eml",
+      "location": "Ordering NPI field",
+      "data_type": "npi",
+      "value": "1838637944",
+      "detection_challenge": "straightforward",
+      "detector": "US_HEALTHCARE_NPI",
+      "detector_label": "US Healthcare NPI",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "1838637944",
+      "status": "detected"
+    },
+    {
+      "file": "iris_care_team_slack.txt",
+      "location": "Grace 8:12 message",
+      "data_type": "phi_note",
+      "value": "checking in on James Whitfield (DOB 05/02/1961, member BCBS265423511) \u2014 stage IV non-small cell lung cancer, EGFR exon 19 deletion, just started osimertinib. He's really struggling \u2014 told me he's having passive suicidal ideation and isn't sleeping. Can behavioral health reach out today?",
+      "detection_challenge": "fn_evasive",
+      "detector": "PROTECTED_HEALTH_INFORMATION",
+      "detector_label": "Protected Health Information",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "James Whitfield",
+      "status": "detected"
+    },
+    {
+      "file": "iris_care_team_slack.txt",
+      "location": "Marcus 8:24 message",
+      "data_type": "phi_note",
+      "value": "I talked with James Whitfield as his peer mentor last night \u2014 he opened up about the depression and his prognosis. He trusts us, let's not lose that.",
+      "detection_challenge": "fn_evasive",
+      "detector": "PROTECTED_HEALTH_INFORMATION",
+      "detector_label": "Protected Health Information",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "James Whitfield",
+      "status": "detected"
+    },
+    {
+      "file": "iris_care_team_slack.txt",
+      "location": "Grace 8:12 (genomic)",
+      "data_type": "genomic_marker",
+      "value": "EGFR exon 19 deletion",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "member_roster_export.csv",
+      "location": "legacy_subscriber_ssn column (row 1)",
+      "data_type": "ssn",
+      "value": "353-78-4334",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "353-78-4334",
+      "status": "detected"
+    },
+    {
+      "file": "member_roster_export.csv",
+      "location": "primary_dx column (row 1)",
+      "data_type": "icd10",
+      "value": "C61",
+      "detection_challenge": "straightforward",
+      "detector": "ICD10_CODE",
+      "detector_label": "ICD10 Code",
+      "confidence": "POSSIBLE",
+      "matched_finding": "C61",
+      "status": "detected"
+    },
+    {
+      "file": "member_roster_export.csv",
+      "location": "member_id column (row 1)",
+      "data_type": "insurance_member_id",
+      "value": "BCBS618495931",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "member_roster_export.csv",
+      "location": "mrn column (row 1)",
+      "data_type": "mrn",
+      "value": "MRN-03413164",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "member_roster_export.csv",
+      "location": "claim_number column",
+      "data_type": "internal_id_like_ssn",
+      "value": "EMP-489-22-6881",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "member_roster_export.csv",
+      "location": "legacy_subscriber_ssn column (row 2)",
+      "data_type": "ssn",
+      "value": "045 947 528",
+      "detection_challenge": "fn_evasive",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "member_roster_export.csv",
+      "location": "dob column (row 1)",
+      "data_type": "dob",
+      "value": "11/02/1949",
+      "detection_challenge": "fn_evasive",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "clinical_pa_criteria.txt",
+      "location": "Lung criteria \u2014 ICD-10",
+      "data_type": "icd10",
+      "value": "C34.90",
+      "detection_challenge": "fp_near_miss",
+      "detector": "ICD10_CODE",
+      "detector_label": "ICD10 Code",
+      "confidence": "POSSIBLE",
+      "matched_finding": "C34.90",
+      "status": "false_positive"
+    },
+    {
+      "file": "clinical_pa_criteria.txt",
+      "location": "Lung criteria \u2014 drug",
+      "data_type": "drug_name",
+      "value": "pembrolizumab",
+      "detection_challenge": "fp_near_miss",
+      "detector": "FDA_NATIONAL_DRUG_NAME",
+      "detector_label": "FDA National Drug Name",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "pembrolizumab",
+      "status": "false_positive"
+    },
+    {
+      "file": "clinical_pa_criteria.txt",
+      "location": "Lung criteria \u2014 disease context",
+      "data_type": "phi_note",
+      "value": "First-line therapy for metastatic non-small cell lung cancer with high PD-L1 expression; benign tumor and in-situ carcinoma criteria follow below",
+      "detection_challenge": "fp_near_miss",
+      "detector": "PROTECTED_HEALTH_INFORMATION",
+      "detector_label": "Protected Health Information",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "research_export.eml",
+      "location": "subject key",
+      "data_type": "internal_id_like_ssn",
+      "value": "EMP-159-40-2290",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "research_export.eml",
+      "location": "QA note \u2014 residual DOB",
+      "data_type": "dob",
+      "value": "07/22/1971",
+      "detection_challenge": "straightforward",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "07/22/1971",
+      "status": "detected"
+    },
+    {
+      "file": "research_export.eml",
+      "location": "QA note \u2014 residual MRN",
+      "data_type": "mrn",
+      "value": "MRN-17182278",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "platform-api.env",
+      "location": "DATABASE_URL",
+      "data_type": "db_connection_string",
+      "value": "postgres://svc_kqh3mb:9n7IWUSmTtzQPxC5@db-hchp.internal:5432/prod",
+      "detection_challenge": "straightforward",
+      "detector": "DATABASE_CONNECTION_STRING",
+      "detector_label": "Database Connection String",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "postgres://svc_kqh3mb:9n7IWUSmTtzQPxC5@db-hchp.internal:5432/prod",
+      "status": "detected"
+    },
+    {
+      "file": "platform-api.env",
+      "location": "OPENAI_API_KEY",
+      "data_type": "openai_key",
+      "value": "sk-proj-YEZAmggQBwBAD3UdRPPgdzUvZ3gpmmICiBlrDp37eCZ32Jgd",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "sk-proj-YEZAmggQBwBAD3UdRPPgdzUvZ3gpmmICiBlrDp37eCZ32Jgd",
+      "status": "detected"
+    },
+    {
+      "file": "platform-api.env",
+      "location": "GITHUB_DEPLOY_TOKEN",
+      "data_type": "github_pat",
+      "value": "ghp_oevbLJoLoaeTOdoe5c3veGprQFnIiU74KKEp",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "ghp_oevbLJoLoaeTOdoe5c3veGprQFnIiU74KKEp",
+      "status": "detected"
+    },
+    {
+      "file": "platform-api.env",
+      "location": "SENDGRID_TEST_KEY",
+      "data_type": "placeholder_key",
+      "value": "xoxb-000000000000-000000000000-XXXXXXXXXXXXXXXXXXXXXXXX",
+      "detection_challenge": "fp_near_miss",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn column (row 1)",
+      "data_type": "ssn",
+      "value": "243-22-6659",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "243-22-6659",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "employee_id column",
+      "data_type": "internal_id_like_ssn",
+      "value": "EMP-985-61-1960",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn column (row 2)",
+      "data_type": "ssn",
+      "value": "169 490 036",
+      "detection_challenge": "fn_evasive",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "home_address column (row 1)",
+      "data_type": "street_address",
+      "value": "812 Maple Crest Dr, Tampa, FL 33602",
+      "detection_challenge": "fn_evasive",
+      "detector": "STREET_ADDRESS",
+      "detector_label": "Street Address",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    }
+  ],
+  "by_file": {
+    "prior_auth_request.eml": {
+      "detectors_sent": [
+        "DATE_OF_BIRTH",
+        "FDA_NATIONAL_DRUG_NAME",
+        "ICD10_CODE",
+        "PERSON_NAME",
+        "US_HEALTHCARE_NPI"
+      ],
+      "findings": [
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Robert Cohen",
+          "confidence": "LIKELY",
+          "start_index": 10,
+          "end_index": 22
+        },
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Margaret Sullivan",
+          "confidence": "VERY_LIKELY",
+          "start_index": 134,
+          "end_index": 151
+        },
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Margaret Sullivan",
+          "confidence": "VERY_LIKELY",
+          "start_index": 335,
+          "end_index": 352
+        },
+        {
+          "detector_name": "DATE_OF_BIRTH",
+          "finding": "03/14/1958",
+          "confidence": "VERY_LIKELY",
+          "start_index": 368,
+          "end_index": 378
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C50.911",
+          "confidence": "VERY_LIKELY",
+          "start_index": 451,
+          "end_index": 458
+        },
+        {
+          "detector_name": "US_HEALTHCARE_NPI",
+          "finding": "1838637944",
+          "confidence": "VERY_LIKELY",
+          "start_index": 475,
+          "end_index": 485
+        },
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Margaret Sullivan",
+          "confidence": "VERY_LIKELY",
+          "start_index": 497,
+          "end_index": 514
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C50.911",
+          "confidence": "LIKELY",
+          "start_index": 587,
+          "end_index": 594
+        },
+        {
+          "detector_name": "FDA_NATIONAL_DRUG_NAME",
+          "finding": "pembrolizumab",
+          "confidence": "VERY_LIKELY",
+          "start_index": 662,
+          "end_index": 675
+        },
+        {
+          "detector_name": "FDA_NATIONAL_DRUG_NAME",
+          "finding": "carboplatin",
+          "confidence": "LIKELY",
+          "start_index": 695,
+          "end_index": 706
+        },
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Robert Cohen",
+          "confidence": "LIKELY",
+          "start_index": 885,
+          "end_index": 897
+        }
+      ],
+      "error": null
+    },
+    "iris_care_team_slack.txt": {
+      "detectors_sent": [
+        "PROTECTED_HEALTH_INFORMATION"
+      ],
+      "findings": [
+        {
+          "detector_name": "PROTECTED_HEALTH_INFORMATION",
+          "finding": "James Whitfield",
+          "confidence": "VERY_LIKELY",
+          "start_index": 78,
+          "end_index": 93
+        },
+        {
+          "detector_name": "PROTECTED_HEALTH_INFORMATION",
+          "finding": "05/02/1961",
+          "confidence": "VERY_LIKELY",
+          "start_index": 99,
+          "end_index": 109
+        },
+        {
+          "detector_name": "PROTECTED_HEALTH_INFORMATION",
+          "finding": "non-small cell lung cancer",
+          "confidence": "VERY_LIKELY",
+          "start_index": 146,
+          "end_index": 172
+        },
+        {
+          "detector_name": "PROTECTED_HEALTH_INFORMATION",
+          "finding": "osimertinib",
+          "confidence": "VERY_LIKELY",
+          "start_index": 210,
+          "end_index": 221
+        },
+        {
+          "detector_name": "PROTECTED_HEALTH_INFORMATION",
+          "finding": "Marcus Reyes",
+          "confidence": "VERY_LIKELY",
+          "start_index": 473,
+          "end_index": 485
+        },
+        {
+          "detector_name": "PROTECTED_HEALTH_INFORMATION",
+          "finding": "James Whitfield",
+          "confidence": "VERY_LIKELY",
+          "start_index": 509,
+          "end_index": 524
+        },
+        {
+          "detector_name": "PROTECTED_HEALTH_INFORMATION",
+          "finding": "depression",
+          "confidence": "VERY_LIKELY",
+          "start_index": 582,
+          "end_index": 592
+        }
+      ],
+      "error": null
+    },
+    "member_roster_export.csv": {
+      "detectors_sent": [
+        "DATE_OF_BIRTH",
+        "ICD10_CODE",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C61",
+          "confidence": "POSSIBLE",
+          "start_index": 133,
+          "end_index": 136
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "353-78-4334",
+          "confidence": "LIKELY",
+          "start_index": 162,
+          "end_index": 173
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C56.9",
+          "confidence": "POSSIBLE",
+          "start_index": 322,
+          "end_index": 327
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C34.90",
+          "confidence": "POSSIBLE",
+          "start_index": 406,
+          "end_index": 412
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C50.911",
+          "confidence": "POSSIBLE",
+          "start_index": 486,
+          "end_index": 493
+        }
+      ],
+      "error": null
+    },
+    "clinical_pa_criteria.txt": {
+      "detectors_sent": [
+        "FDA_NATIONAL_DRUG_NAME",
+        "ICD10_CODE",
+        "PROTECTED_HEALTH_INFORMATION"
+      ],
+      "findings": [
+        {
+          "detector_name": "FDA_NATIONAL_DRUG_NAME",
+          "finding": "pembrolizumab",
+          "confidence": "VERY_LIKELY",
+          "start_index": 327,
+          "end_index": 340
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C34.90",
+          "confidence": "POSSIBLE",
+          "start_index": 357,
+          "end_index": 363
+        },
+        {
+          "detector_name": "FDA_NATIONAL_DRUG_NAME",
+          "finding": "pembrolizumab",
+          "confidence": "VERY_LIKELY",
+          "start_index": 402,
+          "end_index": 415
+        },
+        {
+          "detector_name": "FDA_NATIONAL_DRUG_NAME",
+          "finding": "carboplatin",
+          "confidence": "LIKELY",
+          "start_index": 418,
+          "end_index": 429
+        },
+        {
+          "detector_name": "FDA_NATIONAL_DRUG_NAME",
+          "finding": "paclitaxel",
+          "confidence": "VERY_LIKELY",
+          "start_index": 432,
+          "end_index": 442
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C34.90",
+          "confidence": "LIKELY",
+          "start_index": 447,
+          "end_index": 453
+        },
+        {
+          "detector_name": "FDA_NATIONAL_DRUG_NAME",
+          "finding": "trastuzumab",
+          "confidence": "VERY_LIKELY",
+          "start_index": 507,
+          "end_index": 518
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C50.911",
+          "confidence": "POSSIBLE",
+          "start_index": 523,
+          "end_index": 530
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C20",
+          "confidence": "LIKELY",
+          "start_index": 587,
+          "end_index": 590
+        },
+        {
+          "detector_name": "FDA_NATIONAL_DRUG_NAME",
+          "finding": "bevacizumab",
+          "confidence": "VERY_LIKELY",
+          "start_index": 603,
+          "end_index": 614
+        },
+        {
+          "detector_name": "ICD10_CODE",
+          "finding": "C18.9",
+          "confidence": "POSSIBLE",
+          "start_index": 619,
+          "end_index": 624
+        }
+      ],
+      "error": null
+    },
+    "research_export.eml": {
+      "detectors_sent": [
+        "DATE_OF_BIRTH",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "DATE_OF_BIRTH",
+          "finding": "07/22/1971",
+          "confidence": "VERY_LIKELY",
+          "start_index": 491,
+          "end_index": 501
+        }
+      ],
+      "error": null
+    },
+    "platform-api.env": {
+      "detectors_sent": [
+        "API_KEY",
+        "DATABASE_CONNECTION_STRING"
+      ],
+      "findings": [
+        {
+          "detector_name": "DATABASE_CONNECTION_STRING",
+          "finding": "postgres://svc_kqh3mb:9n7IWUSmTtzQPxC5@db-hchp.internal:5432/prod",
+          "confidence": "VERY_LIKELY",
+          "start_index": 172,
+          "end_index": 237
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "sk-proj-YEZAmggQBwBAD3UdRPPgdzUvZ3gpmmICiBlrDp37eCZ32Jgd",
+          "confidence": "VERY_LIKELY",
+          "start_index": 290,
+          "end_index": 346
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "ghp_oevbLJoLoaeTOdoe5c3veGprQFnIiU74KKEp",
+          "confidence": "VERY_LIKELY",
+          "start_index": 411,
+          "end_index": 451
+        }
+      ],
+      "error": null
+    },
+    "employee_master.csv": {
+      "detectors_sent": [
+        "STREET_ADDRESS",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "243-22-6659",
+          "confidence": "LIKELY",
+          "start_index": 81,
+          "end_index": 92
+        },
+        {
+          "detector_name": "STREET_ADDRESS",
+          "finding": "2 Maple Crest Dr, Tampa, FL 33602\",94000,EMP-985-61-",
+          "confidence": "VERY_LIKELY",
+          "start_index": 96,
+          "end_index": 148
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "594-95-8884",
+          "confidence": "LIKELY",
+          "start_index": 272,
+          "end_index": 283
+        }
+      ],
+      "error": null
+    }
+  },
+  "errors": []
+}
