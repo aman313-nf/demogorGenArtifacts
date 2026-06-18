@@ -1,0 +1,6 @@
+partner_name,country,currency,bank_account,routing_swift,iban,tax_id,amount_usd,notes
+Shenzhen Yuhang Precision,CN,USD,6578713315,BKCHCNBJ,,,48250.00,"5-axis CNC, Q2"
+Brightwater Engineering Ltd,GB,GBP,,,GB42YFQD48932528809570,,31100.00,sheet metal
+Pinnacle Tooling LLC,US,USD,7382997376,248963831,,,27640.00,injection tooling
+Anand Precision Components,IN,INR,116566701,,,ASRPH9301W,19880.00,machining
+Saltillo Cast Works SA,MX,MXN,65133387,,,,22410.00,die casting — interim wire to old ABA 031 051 837

@@ -1,0 +1,13 @@
+#sourcing-aerospace  (Slack export)
+
+Priya Nair  2:18 PM
+heads up on the Halcyon account — Halcyon's Gen-3 'Project Stratus' eVTOL — they're switching the rotor hub to a single Ti-6Al-4V forging for an 18% mass cut, public reveal not until Q4. We're sourcing the prototype run, keep it off the partner portal.
+
+Marcus Reyes  2:21 PM
+got it. DFM on the forging looks ugly, tolerances are tight. which quote is this under?
+
+Priya Nair  2:22 PM
+quote 1693406088356159. I'll keep the drawings in the locked folder, not the shared one.
+
+Marcus Reyes  2:24 PM
+good. that geometry is basically their entire moat, do not want it on a partner's desktop

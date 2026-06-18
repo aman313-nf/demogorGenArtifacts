@@ -1,0 +1,3 @@
+order_id,customer,billing_email,part_number,card_number,exp,cvv,amount_usd,billing_note
+ORD-100482,Halcyon Aero,procurement@halcyonaero.com,0733754330365414,4620450533158696,11/30,359,12480.00,"net-30 declined, charged card on file"
+ORD-100483,Vantage Robotics,ap@vantagerobotics.io,6850142940196556,,10/30,,8650.00,card given over phone: 4232 2602 5634 2165

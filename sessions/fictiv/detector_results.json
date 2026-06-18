@@ -1,0 +1,637 @@
+{
+  "scanned_at": "2026-06-18T14:23:39+00:00",
+  "endpoint": "https://playground.nightfall.ai/scan",
+  "min_confidence": "POSSIBLE",
+  "summary": {
+    "detected": 16,
+    "missed": 5,
+    "not_integrated": 6,
+    "false_positive": 0,
+    "correctly_quiet": 5,
+    "scan_error": 0,
+    "recall_pct": 76.2,
+    "precision_quiet_pct": 100.0
+  },
+  "items": [
+    {
+      "file": "rfq_supplier_handoff.eml",
+      "location": "body \u2014 design context",
+      "data_type": "design_ip",
+      "value": "monolithic Ti-6Al-4V rotor-hub redesign that drops the bolted interface entirely \u2014 this is Halcyon's unannounced Gen-3 eVTOL propulsion architecture, strictly confidential under our MNDA",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "rfq_supplier_handoff.eml",
+      "location": "body \u2014 export status",
+      "data_type": "export_control_marking",
+      "value": "ECCN 9E991; some features may fall under ITAR USML Cat. VIII",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "rfq_supplier_handoff.eml",
+      "location": "drawing number",
+      "data_type": "order_id_like_pan",
+      "value": "3218196001338908",
+      "detection_challenge": "fp_near_miss",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "rfq_supplier_handoff.eml",
+      "location": "customer contact email",
+      "data_type": "email",
+      "value": "daniel.brooks@halcyonaero.com",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "daniel.brooks@halcyonaero.com",
+      "status": "detected"
+    },
+    {
+      "file": "rfq_supplier_handoff.eml",
+      "location": "customer contact phone",
+      "data_type": "phone",
+      "value": "(960) 481-5012",
+      "detection_challenge": "straightforward",
+      "detector": "PHONE_NUMBER",
+      "detector_label": "Phone Number",
+      "confidence": "LIKELY",
+      "matched_finding": "(960) 481-5012",
+      "status": "detected"
+    },
+    {
+      "file": "platform-api.env",
+      "location": "AWS_ACCESS_KEY_ID",
+      "data_type": "aws_access_key",
+      "value": "AKIAM80O2RAK1VRJNVGF",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "platform-api.env",
+      "location": "DATABASE_URL",
+      "data_type": "db_connection_string",
+      "value": "postgres://svc_0czuzr:en68K4TunPFz46PD@db-jqip.internal:5432/prod",
+      "detection_challenge": "straightforward",
+      "detector": "DATABASE_CONNECTION_STRING",
+      "detector_label": "Database Connection String",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "postgres://svc_0czuzr:en68K4TunPFz46PD@db-jqip.internal:5432/prod",
+      "status": "detected"
+    },
+    {
+      "file": "platform-api.env",
+      "location": "STRIPE_SECRET_KEY",
+      "data_type": "stripe_live_key",
+      "value": "sk_live_VJIqVLB5LzxoiGFfWd3hjOkY",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "POSSIBLE",
+      "matched_finding": "sk_live_VJIqVLB5LzxoiGFfWd3hjOkY",
+      "status": "detected"
+    },
+    {
+      "file": "platform-api.env",
+      "location": "GITHUB_DEPLOY_TOKEN",
+      "data_type": "github_pat",
+      "value": "ghp_RBMeyyMDHqJ38aRUhR4IWrXPvhsBkDa9U4Uq",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "ghp_RBMeyyMDHqJ38aRUhR4IWrXPvhsBkDa9U4Uq",
+      "status": "detected"
+    },
+    {
+      "file": "platform-api.env",
+      "location": "STRIPE_TEST_KEY",
+      "data_type": "placeholder_key",
+      "value": "xoxb-000000000000-000000000000-XXXXXXXXXXXXXXXXXXXXXXXX",
+      "detection_challenge": "fp_near_miss",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "supplier_payouts_2026Q2.csv",
+      "location": "iban column (Nordmann)",
+      "data_type": "iban",
+      "value": "GB42YFQD48932528809570",
+      "detection_challenge": "straightforward",
+      "detector": "IBAN_CODE",
+      "detector_label": "IBAN Code",
+      "confidence": "LIKELY",
+      "matched_finding": "GB42YFQD48932528809570",
+      "status": "detected"
+    },
+    {
+      "file": "supplier_payouts_2026Q2.csv",
+      "location": "routing_swift column (Pinnacle)",
+      "data_type": "us_routing",
+      "value": "248963831",
+      "detection_challenge": "straightforward",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": "LIKELY",
+      "matched_finding": "248963831",
+      "status": "detected"
+    },
+    {
+      "file": "supplier_payouts_2026Q2.csv",
+      "location": "bank_account column (Shenzhen Yuhang)",
+      "data_type": "bank_account",
+      "value": "6578713315",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "supplier_payouts_2026Q2.csv",
+      "location": "tax_id column (Anand Precision)",
+      "data_type": "india_pan",
+      "value": "ASRPH9301W",
+      "detection_challenge": "straightforward",
+      "detector": "INDIA_PAN_INDIVIDUAL",
+      "detector_label": "India PAN Individual",
+      "confidence": "POSSIBLE",
+      "matched_finding": "ASRPH9301W",
+      "status": "detected"
+    },
+    {
+      "file": "supplier_payouts_2026Q2.csv",
+      "location": "notes column (Saltillo)",
+      "data_type": "us_routing",
+      "value": "031 051 837",
+      "detection_challenge": "fn_evasive",
+      "detector": "US_BANK_ROUTING_MICR",
+      "detector_label": "US Bank Routing MICR",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn column (row 1)",
+      "data_type": "ssn",
+      "value": "144-55-3007",
+      "detection_challenge": "straightforward",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": "LIKELY",
+      "matched_finding": "144-55-3007",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "dob column (row 1)",
+      "data_type": "dob",
+      "value": "05/15/1965",
+      "detection_challenge": "fn_evasive",
+      "detector": "DATE_OF_BIRTH",
+      "detector_label": "Date of Birth",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "full_name column (row 1)",
+      "data_type": "full_name",
+      "value": "Priya Santos",
+      "detection_challenge": "straightforward",
+      "detector": "PERSON_NAME",
+      "detector_label": "Person Name",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "Priya Santos",
+      "status": "detected"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "home_address column (row 1)",
+      "data_type": "street_address",
+      "value": "1490 O'Farrell St, San Francisco, CA 94115",
+      "detection_challenge": "fn_evasive",
+      "detector": "STREET_ADDRESS",
+      "detector_label": "Street Address",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "employee_id column",
+      "data_type": "internal_id_like_ssn",
+      "value": "EMP-927-80-2604",
+      "detection_challenge": "fp_near_miss",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "employee_master.csv",
+      "location": "ssn column (row 2)",
+      "data_type": "ssn",
+      "value": "052 848 857",
+      "detection_challenge": "fn_evasive",
+      "detector": "US_SOCIAL_SECURITY_NUMBER",
+      "detector_label": "US Social Security Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "missed"
+    },
+    {
+      "file": "eng_oncall_slack.txt",
+      "location": "Diego 9:43 message",
+      "data_type": "github_pat",
+      "value": "ghp_jmsn9dLVIdVuddLEG62Hkd9Gf2leMeR3pzh8",
+      "detection_challenge": "straightforward",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "ghp_jmsn9dLVIdVuddLEG62Hkd9Gf2leMeR3pzh8",
+      "status": "detected"
+    },
+    {
+      "file": "eng_oncall_slack.txt",
+      "location": "Wei 9:45 message",
+      "data_type": "db_connection_string",
+      "value": "postgres://svc_4kplmc:NfAQLKHu7qnQTupq@db-ziqp.internal:5432/prod",
+      "detection_challenge": "straightforward",
+      "detector": "DATABASE_CONNECTION_STRING",
+      "detector_label": "Database Connection String",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "postgres://svc_4kplmc:NfAQLKHu7qnQTupq@db-ziqp.internal:5432/prod",
+      "status": "detected"
+    },
+    {
+      "file": "eng_oncall_slack.txt",
+      "location": "Wei 9:52 message (runbook)",
+      "data_type": "aws_access_key",
+      "value": "QUtJQVQzVUVBM0dFOE42UUlXRVA=",
+      "detection_challenge": "fn_evasive",
+      "detector": "API_KEY",
+      "detector_label": "API Key",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "QUtJQVQzVUVBM0dFOE42UUlXRVA=",
+      "status": "detected"
+    },
+    {
+      "file": "eng_oncall_slack.txt",
+      "location": "Diego 10:04 message",
+      "data_type": "git_sha",
+      "value": "b95e909348334896a68f812d810a485ed03241b4",
+      "detection_challenge": "fp_near_miss",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "order_export.csv",
+      "location": "card_number column (ORD-100482)",
+      "data_type": "credit_card_visa",
+      "value": "4620450533158696",
+      "detection_challenge": "straightforward",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "4620450533158696",
+      "status": "detected"
+    },
+    {
+      "file": "order_export.csv",
+      "location": "part_number column (ORD-100482)",
+      "data_type": "order_id_like_pan",
+      "value": "0733754330365414",
+      "detection_challenge": "fp_near_miss",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    },
+    {
+      "file": "order_export.csv",
+      "location": "billing_note column (ORD-100483)",
+      "data_type": "credit_card_visa",
+      "value": "4232 2602 5634 2165",
+      "detection_challenge": "fn_evasive",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "4232 2602 5634 2165",
+      "status": "detected"
+    },
+    {
+      "file": "order_export.csv",
+      "location": "cvv column (ORD-100482)",
+      "data_type": "cvv",
+      "value": "359",
+      "detection_challenge": "straightforward",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "order_export.csv",
+      "location": "billing_email column (ORD-100482)",
+      "data_type": "email",
+      "value": "procurement@halcyonaero.com",
+      "detection_challenge": "straightforward",
+      "detector": "EMAIL_ADDRESS",
+      "detector_label": "Email Address",
+      "confidence": "VERY_LIKELY",
+      "matched_finding": "procurement@halcyonaero.com",
+      "status": "detected"
+    },
+    {
+      "file": "program_slack.txt",
+      "location": "Priya 2:18 message",
+      "data_type": "design_ip",
+      "value": "Halcyon's Gen-3 'Project Stratus' eVTOL \u2014 they're switching the rotor hub to a single Ti-6Al-4V forging for an 18% mass cut, public reveal not until Q4. We're sourcing the prototype run, keep it off the partner portal",
+      "detection_challenge": "fn_evasive",
+      "detector": null,
+      "detector_label": null,
+      "confidence": null,
+      "matched_finding": null,
+      "status": "not_integrated"
+    },
+    {
+      "file": "program_slack.txt",
+      "location": "Priya 2:22 message",
+      "data_type": "order_id_like_pan",
+      "value": "1693406088356159",
+      "detection_challenge": "fp_near_miss",
+      "detector": "CREDIT_CARD_NUMBER",
+      "detector_label": "Credit Card Number",
+      "confidence": null,
+      "matched_finding": null,
+      "status": "correctly_quiet"
+    }
+  ],
+  "by_file": {
+    "rfq_supplier_handoff.eml": {
+      "detectors_sent": [
+        "CREDIT_CARD_NUMBER",
+        "EMAIL_ADDRESS",
+        "PHONE_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "priya.nair@fictiv.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 18,
+          "end_index": 39
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "li.jun@syh-precision.cn",
+          "confidence": "VERY_LIKELY",
+          "start_index": 53,
+          "end_index": 76
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "marcus.reyes@fictiv.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 96,
+          "end_index": 119
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "rfq-halcyon-32181960@fictiv.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 247,
+          "end_index": 278
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "daniel.brooks@halcyonaero.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 1117,
+          "end_index": 1146
+        },
+        {
+          "detector_name": "PHONE_NUMBER",
+          "finding": "(960) 481-5012",
+          "confidence": "LIKELY",
+          "start_index": 1151,
+          "end_index": 1165
+        }
+      ],
+      "error": null
+    },
+    "platform-api.env": {
+      "detectors_sent": [
+        "API_KEY",
+        "DATABASE_CONNECTION_STRING"
+      ],
+      "findings": [
+        {
+          "detector_name": "DATABASE_CONNECTION_STRING",
+          "finding": "postgres://svc_0czuzr:en68K4TunPFz46PD@db-jqip.internal:5432/prod",
+          "confidence": "VERY_LIKELY",
+          "start_index": 315,
+          "end_index": 380
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "sk_live_VJIqVLB5LzxoiGFfWd3hjOkY",
+          "confidence": "POSSIBLE",
+          "start_index": 411,
+          "end_index": 443
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "ghp_RBMeyyMDHqJ38aRUhR4IWrXPvhsBkDa9U4Uq",
+          "confidence": "VERY_LIKELY",
+          "start_index": 521,
+          "end_index": 561
+        }
+      ],
+      "error": null
+    },
+    "supplier_payouts_2026Q2.csv": {
+      "detectors_sent": [
+        "IBAN_CODE",
+        "INDIA_PAN_INDIVIDUAL",
+        "US_BANK_ROUTING_MICR"
+      ],
+      "findings": [
+        {
+          "detector_name": "IBAN_CODE",
+          "finding": "GB42YFQD48932528809570",
+          "confidence": "LIKELY",
+          "start_index": 204,
+          "end_index": 226
+        },
+        {
+          "detector_name": "US_BANK_ROUTING_MICR",
+          "finding": "248963831",
+          "confidence": "LIKELY",
+          "start_index": 288,
+          "end_index": 297
+        },
+        {
+          "detector_name": "INDIA_PAN_INDIVIDUAL",
+          "finding": "ASRPH9301W",
+          "confidence": "POSSIBLE",
+          "start_index": 373,
+          "end_index": 383
+        }
+      ],
+      "error": null
+    },
+    "employee_master.csv": {
+      "detectors_sent": [
+        "DATE_OF_BIRTH",
+        "PERSON_NAME",
+        "STREET_ADDRESS",
+        "US_SOCIAL_SECURITY_NUMBER"
+      ],
+      "findings": [
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Priya Santos",
+          "confidence": "VERY_LIKELY",
+          "start_index": 63,
+          "end_index": 75
+        },
+        {
+          "detector_name": "US_SOCIAL_SECURITY_NUMBER",
+          "finding": "144-55-3007",
+          "confidence": "LIKELY",
+          "start_index": 90,
+          "end_index": 101
+        },
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Aisha Kowalski",
+          "confidence": "VERY_LIKELY",
+          "start_index": 170,
+          "end_index": 184
+        },
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Lucas Romano",
+          "confidence": "VERY_LIKELY",
+          "start_index": 275,
+          "end_index": 287
+        },
+        {
+          "detector_name": "PERSON_NAME",
+          "finding": "Sora Moreau",
+          "confidence": "VERY_LIKELY",
+          "start_index": 374,
+          "end_index": 385
+        }
+      ],
+      "error": null
+    },
+    "eng_oncall_slack.txt": {
+      "detectors_sent": [
+        "API_KEY",
+        "DATABASE_CONNECTION_STRING"
+      ],
+      "findings": [
+        {
+          "detector_name": "API_KEY",
+          "finding": "ghp_jmsn9dLVIdVuddLEG62Hkd9Gf2leMeR3pzh8",
+          "confidence": "VERY_LIKELY",
+          "start_index": 248,
+          "end_index": 288
+        },
+        {
+          "detector_name": "DATABASE_CONNECTION_STRING",
+          "finding": "postgres://svc_4kplmc:NfAQLKHu7qnQTupq@db-ziqp.internal:5432/prod",
+          "confidence": "VERY_LIKELY",
+          "start_index": 381,
+          "end_index": 446
+        },
+        {
+          "detector_name": "API_KEY",
+          "finding": "QUtJQVQzVUVBM0dFOE42UUlXRVA=",
+          "confidence": "VERY_LIKELY",
+          "start_index": 520,
+          "end_index": 548
+        }
+      ],
+      "error": null
+    },
+    "order_export.csv": {
+      "detectors_sent": [
+        "CREDIT_CARD_NUMBER",
+        "EMAIL_ADDRESS"
+      ],
+      "findings": [
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "procurement@halcyonaero.com",
+          "confidence": "VERY_LIKELY",
+          "start_index": 112,
+          "end_index": 139
+        },
+        {
+          "detector_name": "CREDIT_CARD_NUMBER",
+          "finding": "4620450533158696",
+          "confidence": "VERY_LIKELY",
+          "start_index": 157,
+          "end_index": 173
+        },
+        {
+          "detector_name": "EMAIL_ADDRESS",
+          "finding": "ap@vantagerobotics.io",
+          "confidence": "VERY_LIKELY",
+          "start_index": 261,
+          "end_index": 282
+        },
+        {
+          "detector_name": "CREDIT_CARD_NUMBER",
+          "finding": "4232 2602 5634 2165",
+          "confidence": "VERY_LIKELY",
+          "start_index": 339,
+          "end_index": 358
+        }
+      ],
+      "error": null
+    },
+    "program_slack.txt": {
+      "detectors_sent": [
+        "CREDIT_CARD_NUMBER"
+      ],
+      "findings": [],
+      "error": null
+    }
+  },
+  "errors": []
+}

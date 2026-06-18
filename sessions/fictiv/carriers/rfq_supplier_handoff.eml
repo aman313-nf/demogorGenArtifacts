@@ -1,0 +1,23 @@
+From: Priya Nair <priya.nair@fictiv.com>
+To: Li Jun <li.jun@syh-precision.cn>
+Cc: Marcus Reyes <marcus.reyes@fictiv.com>
+Subject: RFQ — Halcyon Aero actuator/rotor housing, dwg 3218196001338908
+Date: Mon, 15 Jun 2026 09:12:04 -0700
+Message-ID: <rfq-halcyon-32181960@fictiv.com>
+Content-Type: text/plain; charset=utf-8
+
+Li Jun — sending over a new 5-axis CNC job for one of our aerospace accounts.
+Drawing 3218196001338908 (rev C) attached. Customer needs 25 units, AS9100 lot.
+
+Design context so your CAM team scopes it right: it's a monolithic Ti-6Al-4V rotor-hub redesign that drops the bolted interface entirely — this is Halcyon's unannounced Gen-3 eVTOL propulsion architecture, strictly confidential under our MNDA. Please keep
+this tightly held — customer is pre-announcement and the geometry is the whole IP.
+
+Export status on the customer questionnaire: ECCN 9E991; some features may fall under ITAR USML Cat. VIII. Flagging so we confirm
+classification before any files leave the platform.
+
+Customer technical contact if you have geometry questions:
+  Daniel Brooks, Mechanical Lead, Halcyon Aero
+  daniel.brooks@halcyonaero.com  /  (960) 481-5012
+
+Quote back by Thu. Thanks,
+Priya

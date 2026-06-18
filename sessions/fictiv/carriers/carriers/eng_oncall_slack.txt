@@ -1,0 +1,21 @@
+#incident-quote-api  (Slack export)
+
+Diego Santos  9:41 AM
+quote-api 5xx spiking in us-west-2, RDS connections maxed. redeploying to repro
+
+Diego Santos  9:43 AM
+using the CI deploy token directly for 5 min to force a rollback:
+GITHUB_DEPLOY_TOKEN=ghp_jmsn9dLVIdVuddLEG62Hkd9Gf2leMeR3pzh8
+will rotate after, promise
+
+Wei Chen  9:45 AM
+here's the read replica string if you need it
+postgres://svc_4kplmc:NfAQLKHu7qnQTupq@db-ziqp.internal:5432/prod
+
+Wei Chen  9:52 AM
+runbook step 4 has the fallback AWS key base64'd btw:
+QUtJQVQzVUVBM0dFOE42UUlXRVA=
+(decode it, that's the service account)
+
+Diego Santos  10:04 AM
+fixed — bad deploy b95e909348334896a68f812d810a485ed03241b4. rolling back. NOT rotating in the thread, opening a ticket

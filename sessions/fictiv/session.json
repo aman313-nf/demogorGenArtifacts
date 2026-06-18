@@ -1,0 +1,102 @@
+{
+  "session_id": "fictiv-d5183b",
+  "company": "Fictiv",
+  "created_at": "2026-06-18T14:05:51+00:00",
+  "updated_at": "2026-06-18T14:23:57+00:00",
+  "status": "generated",
+  "profile_summary": "Fictiv \u2014 digital manufacturing marketplace ('AWS of manufacturing'). Customer CAD/IP under NDA transits the platform out to a global partner network (China/India/Japan/Mexico) under EAR/ITAR. ~400 staff; Node/TS/GraphQL on AWS; acquired by MISUMI (Apr 2025). Demo spine: customer design IP + export-controlled data leaving offshore, plus secrets/PCI/supplier-payout/HR, with a precision story on manufacturing identifiers shaped like PANs/SSNs.",
+  "config": {
+    "seed": 42,
+    "target_carriers": 7,
+    "surfaces": [
+      "Email",
+      "GitHub",
+      "Google Drive",
+      "Slack",
+      "Product / billing"
+    ],
+    "categories": [
+      "IP",
+      "secret",
+      "PCI",
+      "PII",
+      "financial"
+    ],
+    "challenge_mix": {
+      "straightforward": 0.59,
+      "fp_near_miss": 0.19,
+      "fn_evasive": 0.22
+    },
+    "personas": [
+      "Supply Chain Manager (protagonist)",
+      "Manufacturing/DFM Engineer",
+      "Platform Software Engineer",
+      "Accounts Payable",
+      "People/HR"
+    ],
+    "lead_risks": [
+      "customer IP to offshore",
+      "export control (ITAR/EAR)",
+      "precision / part numbers",
+      "platform secrets",
+      "global supplier payouts & cross-border PII"
+    ]
+  },
+  "planted_summary": {
+    "total": 32,
+    "by_category": {
+      "IP": 3,
+      "PCI": 6,
+      "PII": 10,
+      "secret": 9,
+      "financial": 4
+    },
+    "by_challenge": {
+      "fn_evasive": 9,
+      "fp_near_miss": 6,
+      "straightforward": 17
+    },
+    "surfaces": [
+      "Email",
+      "GitHub",
+      "Google Drive",
+      "Product / billing",
+      "Slack"
+    ]
+  },
+  "manifest": [
+    "profile.md",
+    "generate.py",
+    "PLANTED_INDEX.csv",
+    "PLANTED_INDEX.md",
+    "dashboard.html",
+    "carriers/employee_master.csv",
+    "carriers/eng_oncall_slack.txt",
+    "carriers/order_export.csv",
+    "carriers/platform-api.env",
+    "carriers/program_slack.txt",
+    "carriers/rfq_supplier_handoff.eml",
+    "carriers/supplier_payouts_2026Q2.csv"
+  ],
+  "pending": [
+    "Optional: add a MISUMI (parent) post-acquisition integration email carrier \u2014 Japan-based data flow.",
+    "Optional: add a real CAD/drawing document carrier (.pdf via the pdf skill) to make the design-IP leak visual, not just prose.",
+    "Confirm with prospect whether internal coordination is Slack or Teams; swap the two Slack carriers if Teams."
+  ],
+  "provenance": {
+    "skill_version": "1.0",
+    "python": "3.11.15",
+    "seed": 42,
+    "generate_py_sha256": "24f3277d7b43ed600a931e96fa8b9a4d01c27ce158acf462d9bc420ef8880b21"
+  },
+  "decision_log": [
+    {
+      "ts": "2026-06-18T14:05:51+00:00",
+      "note": "session created"
+    },
+    {
+      "ts": "2026-06-18T14:23:57+00:00",
+      "note": "Generated full POC: 7 carriers, 32 plants (19 straightforward / 6 FP near-miss / 7 FN-evasive). Lead = customer design-IP + EAR/ITAR export marking to a Shenzhen partner. Scanned via Nightfall playground: 100% precision on near-misses, 76.2% recall; design_ip/export_control_marking are not_integrated (coverage-gap talking point). Fixed generator data-validity bugs surfaced by scan (GB IBAN layout, valid FRB routing prefix, India PAN holder-type char, geographic phone)."
+    }
+  ]
+}
