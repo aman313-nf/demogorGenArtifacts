@@ -1,0 +1,7 @@
+[ci] build 210760474f36e8b5359309cc6273931bdb2a0df3 started
+[ci] configuring aws...
++ export AWS_SECRET_ACCESS_KEY=EIQOkrtDXtBi10Q71hA1XcW9aTMX1C-CI3-dXRZv
+[ci] writing grader key to env (multiline heredoc):
+sk-proj-1D6iNIb6zLKQbfPBi3Dl
+dqyunDuvW4yrW81Aq1fEbVId8woP
+[ci] done

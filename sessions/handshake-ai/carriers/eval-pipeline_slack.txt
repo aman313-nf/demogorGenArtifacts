@@ -1,0 +1,5 @@
+Raj Patel (Platform Engineering): prod eval run is 500ing, can someone check the grader?
+Mei Lin (ML Infra (ex-Cleanlab)): try my PAT real quick: ghp_EN2XeDA4OKmTSyFzpjPSa5W3X4gXBolZ9SHD
+Dana Okafor (AI Training Ops): heads up the Atlas Labs Project Meridian rubric says 'penalize unsupported drug-interaction claims, gold from held-out medical benchmark' — don't paste that in the public channel pls
+Mei Lin (ML Infra (ex-Cleanlab)): ok the grader key is base64 in the runbook: c2stcHJvai1kSnA2MmhEaVpEUUhKTXU4VzVDTjBVNUdCMTZKQzVrVjNFQ3FXcDFPclhYSEZPcHI=
+Raj Patel (Platform Engineering): thx. task id for the failing one is 49257af1-b6aa-405b-93d5-f2f7709b7d97

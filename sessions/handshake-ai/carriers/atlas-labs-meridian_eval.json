@@ -1,0 +1,9 @@
+{
+  "project": "Project Meridian",
+  "customer": "Atlas Labs",
+  "task_id": "3eae0032-0bd4-4990-8640-be0f25b8fd4b",
+  "dataset_content_hash": "6bd2aa399dac946dc59c0996daeee6f529a27976",
+  "rubric": "Project Meridian rubric v3 (CONFIDENTIAL \u2014 Atlas Labs): score the model's clinical-reasoning trace 1-7. Penalize unsupported drug-interaction claims. Gold answers derived from Atlas Labs's held-out medical benchmark; do not redistribute.",
+  "expert": "Clara Weber",
+  "expert_answer": "Patient in the vignette \u2014 Mei Choi, born 04/08/1951 \u2014 presents with... the model misses the contraindication. (I verified against a real chart I have access to.) BTW my test harness uses key sk-proj-Qmzvr3e9XrwPGzR1Iv8bh4qlL9qcgMBwUYuBMGhy5KmqcTBa to call the grader."
+}

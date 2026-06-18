@@ -1,0 +1,166 @@
+{
+  "session_id": "handshake-ai-1cb263",
+  "company": "Handshake AI",
+  "created_at": "2026-06-17T04:28:12+00:00",
+  "updated_at": "2026-06-17T07:47:06+00:00",
+  "status": "generated",
+  "profile_summary": "Handshake AI: expert network feeding confidential frontier-lab eval/training data through a proprietary annotation platform, atop the legacy career network (18M students, FERPA). Demo leans on secrets + confidential lab IP, with PII/financial/HR for POC depth.",
+  "config": {
+    "seed": 42,
+    "target_carriers": 12,
+    "surfaces": [
+      "GitHub",
+      "Slack",
+      "Google Drive",
+      "Snowflake",
+      "Annotation Platform",
+      "Email",
+      "Salesforce CRM",
+      "CI"
+    ],
+    "categories": [
+      "secret",
+      "confidential",
+      "PII",
+      "financial"
+    ],
+    "challenge_mix": {
+      "straightforward": 0.5,
+      "fp_near_miss": 0.2,
+      "fn_evasive": 0.3
+    },
+    "personas": [
+      {
+        "name": "Raj Patel",
+        "team": "Platform Engineering"
+      },
+      {
+        "name": "Mei Lin",
+        "team": "ML Infra (ex-Cleanlab)"
+      },
+      {
+        "name": "Dana Okafor",
+        "team": "AI Training Ops"
+      },
+      {
+        "name": "Liam Brennan",
+        "team": "Expert Network Ops"
+      },
+      {
+        "name": "Sofia Reyes",
+        "team": "Payments Ops"
+      },
+      {
+        "name": "Arjun Shah",
+        "team": "Trust & Safety / Data"
+      },
+      {
+        "name": "Nicole Tran",
+        "team": "Partnerships"
+      },
+      {
+        "name": "Priya Nair",
+        "team": "People/HR"
+      }
+    ],
+    "emphasis": "secrets_and_lab_ip",
+    "scale": "full_poc",
+    "lab_customer": "Atlas Labs",
+    "lab_project_codename": "Project Meridian",
+    "volume": 1.0
+  },
+  "planted_summary": {
+    "total": 99,
+    "by_category": {
+      "secret": 19,
+      "confidential": 4,
+      "PII": 50,
+      "financial": 26
+    },
+    "by_challenge": {
+      "straightforward": 70,
+      "fp_near_miss": 18,
+      "fn_evasive": 11
+    },
+    "surfaces": [
+      "Annotation Platform",
+      "CI",
+      "Email",
+      "GitHub",
+      "Google Drive",
+      "Salesforce CRM",
+      "Slack",
+      "Snowflake",
+      "Zendesk"
+    ]
+  },
+  "manifest": [
+    "profile.md",
+    "generate.py",
+    "PLANTED_INDEX.csv",
+    "PLANTED_INDEX.md",
+    "dashboard.html",
+    "carriers/ai-platform.env",
+    "carriers/atlas-deploy_service-account.json",
+    "carriers/atlas-labs-meridian_eval.json",
+    "carriers/ci-build.log",
+    "carriers/contractor_onboarding.eml",
+    "carriers/employee_master.csv",
+    "carriers/eval-pipeline_slack.txt",
+    "carriers/expert_payouts.csv",
+    "carriers/partnerships_meridian_nda.eml",
+    "carriers/payout_support_ticket.txt",
+    "carriers/salesforce_opportunities.csv",
+    "carriers/settings.py",
+    "carriers/students_export.csv"
+  ],
+  "pending": [
+    "Optional: add .xlsx/.pdf document carriers (employee offer letter, signed NDA PDF) via openpyxl/reportlab \u2014 text carriers only for now",
+    "Optional: add a Salesforce contact phone column and an Intercom/Zendesk support-ticket carrier",
+    "Confirm fabricated lab name 'Atlas Labs' / 'Project Meridian' is acceptable vs a different codename"
+  ],
+  "provenance": {
+    "skill_version": "1.0",
+    "python": "3.14.4",
+    "seed": 42,
+    "generate_py_sha256": "959677ac7485f7b446ebdb4280c4a6f767390e80f047aab92bdab3fd4f5ccc2e"
+  },
+  "decision_log": [
+    {
+      "ts": "2026-06-17T04:28:12+00:00",
+      "note": "session created"
+    },
+    {
+      "ts": "2026-06-17T04:34:22+00:00",
+      "note": "generated 39 plants / 12 carriers (full POC, secrets+lab-IP lean); provenance stamped; verify --deep OK"
+    },
+    {
+      "ts": "2026-06-17T05:32:14+00:00",
+      "note": "regenerated: 99 plants/13 carriers; realism (.edu emails, STU-/EXP- ids, wider name pool) + context-diversity (every CSV row indexed, SSN across 3 surfaces, added Zendesk ticket)"
+    },
+    {
+      "ts": "2026-06-17T07:45:23+00:00",
+      "note": "[copilot] mutate_config {\"volume\": 1.3} FAILED \u2192 rolled back"
+    },
+    {
+      "ts": "2026-06-17T07:45:23+00:00",
+      "note": "[copilot] mutate_config {\"volume\": \"not_a_number\"} FAILED \u2192 rolled back"
+    },
+    {
+      "ts": "2026-06-17T07:47:06+00:00",
+      "note": "[copilot] mutate_config {\"volume\": 1.3} \u2192 regenerated + verified"
+    },
+    {
+      "ts": "2026-06-17T07:47:06+00:00",
+      "note": "[copilot] mutate_config {\"seed\": 7} \u2192 regenerated + verified"
+    },
+    {
+      "ts": "2026-06-17T07:47:06+00:00",
+      "note": "[copilot] mutate_config {\"volume\": \"x\"} FAILED \u2192 rolled back"
+    },
+    {
+      "ts": "2026-06-17T07:47:06+00:00",
+      "note": "[copilot] mutate_config {\"seed\": 42, \"volume\": 1.0} \u2192 regenerated + verified"
+    }
+  ]
+}

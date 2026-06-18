@@ -1,0 +1,7 @@
+[Zendesk #48217]  Requester: Priya Rossi <contractor>
+Subject: didn't receive my October payout
+
+Hi — I completed 32 tasks on Project Meridian last month but haven't been paid. For verification my SSN is 247-94-1699 and my number is (796) 952-6447. Can you check? Thanks.
+
+---
+Sofia Reyes (Payments Ops): looking into it now, please don't share full SSN in tickets in future.
