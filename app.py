@@ -69,9 +69,8 @@ CHAL_LABEL = {"straightforward": "🎯 straightforward", "fp_near_miss": "🟡 F
               "fn_evasive": "🫥 FN evasive"}
 CHAL_COLOR = {"straightforward": "#e8590c", "fp_near_miss": "#f5c518", "fn_evasive": "#1c7ed6"}
 CAT_COLOR = {"secret": "#e03131", "confidential": "#9c36b5", "PII": "#1971c2", "financial": "#2f9e44"}
-VIEW_ICON = {"Demo overview": "📖 Demo overview", "Leaks in context": "🔍 Leaks in context",
-             "Coverage & diversity": "🌈 Coverage & diversity", "Planted index": "🗂 Planted index",
-             "Research & decisions": "🔬 Research & decisions", "Detector results": "🧪 Detector results"}
+VIEW_ICON = {"Demo overview": "📖 Demo overview", "Coverage & diversity": "🌈 Coverage & diversity",
+             "Findings": "🔍 Findings", "Research & decisions": "🔬 Research & decisions"}
 DET_BADGE = {"detected": "✅ detected", "missed": "❌ missed", "false_positive": "🟥 fired (FP)",
              "correctly_quiet": "🟢 quiet", "not_integrated": "⬜ not integrated", "scan_error": "⚠️ error"}
 CONF_COLOR = {"high": "#2f9e44", "medium": "#f08c00", "low": "#e8590c"}
@@ -187,10 +186,7 @@ if COPILOT_ENABLED:
     import copilot  # internal-only; intentionally NOT shipped in the public read-only build
     copilot.render_copilot(SESSION_DIR, df, cfg)
 
-# ---- sanitize state the copilot/user may have set, against current options --
-carriers = sorted(df["file"].unique())
-if ss[vc.K_CARRIER] not in carriers:
-    ss[vc.K_CARRIER] = carriers[0]
+# ---- sanitize copilot/user-set view against current options -----------------
 if ss[vc.K_VIEW] not in vc.VIEWS:
     ss[vc.K_VIEW] = vc.VIEWS[0]
 
@@ -215,28 +211,6 @@ def render_overview():
     p[0].metric("🎯 True positives to catch", int(cc.get("straightforward", 0)))
     p[1].metric("🟡 Must NOT alert (precision)", int(cc.get("fp_near_miss", 0)))
     p[2].metric("🫥 Evasive (recall)", int(cc.get("fn_evasive", 0)))
-
-
-def render_leaks():
-    st.caption("Each carrier as it would be scanned — planted values highlighted, with the talking points.")
-    sel = st.selectbox("Carrier", carriers, key=vc.K_CARRIER)
-    sub = df[df["file"] == sel]
-    st.markdown(f"**Surface:** {sub['surface'].iloc[0]}  ·  **Who:** "
-                f"{', '.join(sorted(sub['persona'].unique()))}  ·  **{len(sub)} planted item(s)**")
-    focus = ss.get(vc.K_FOCUS)
-    vals = sub["value"].tolist() + ([focus] if focus else [])
-    left, right = st.columns([3, 2])
-    with left:
-        st.markdown("**File content**")
-        pre = carrier_pre(sel, vals)
-        if pre:
-            st.markdown(pre, unsafe_allow_html=True)
-        else:
-            st.info(f"(carrier file {sel} not found)")
-    with right:
-        st.markdown("**Planted items & why they land**")
-        for _, r in sub.iterrows():
-            st.markdown(item_card(r), unsafe_allow_html=True)
 
 
 def render_coverage():
@@ -276,51 +250,6 @@ def render_coverage():
     sc = df["surface"].value_counts().reset_index(); sc.columns = ["surface", "n"]
     fig = px.bar(sc, x="surface", y="n"); fig.update_layout(height=300, margin=dict(l=0, r=0, t=10, b=0))
     st.plotly_chart(fig, width="stretch")
-
-
-def render_index():
-    # sanitize copilot/user-set filters against current options
-    for key, col in [(vc.K_FCAT, "category"), (vc.K_FCHAL, "detection_challenge"),
-                     (vc.K_FSURF, "surface"), (vc.K_FPER, "persona")]:
-        opts = sorted(df[col].unique())
-        ss[key] = [v for v in ss.get(key, []) if v in opts]
-    f = st.columns(4)
-    f[0].multiselect("Category", sorted(df["category"].unique()), key=vc.K_FCAT)
-    f[1].multiselect("Challenge", sorted(df["detection_challenge"].unique()), key=vc.K_FCHAL)
-    f[2].multiselect("Surface", sorted(df["surface"].unique()), key=vc.K_FSURF)
-    f[3].multiselect("Persona", sorted(df["persona"].unique()), key=vc.K_FPER)
-    view = df
-    if ss[vc.K_FCAT]:
-        view = view[view["category"].isin(ss[vc.K_FCAT])]
-    if ss[vc.K_FCHAL]:
-        view = view[view["detection_challenge"].isin(ss[vc.K_FCHAL])]
-    if ss[vc.K_FSURF]:
-        view = view[view["surface"].isin(ss[vc.K_FSURF])]
-    if ss[vc.K_FPER]:
-        view = view[view["persona"].isin(ss[vc.K_FPER])]
-    view = view.reset_index(drop=True)
-    st.caption(f"{len(view)} of {len(df)} planted items — select a row to view it in its carrier file.")
-    event = st.dataframe(
-        view[["file", "surface", "category", "data_type", "value", "persona",
-              "detection_challenge", "why_it_lands"]],
-        width="stretch", hide_index=True, on_select="rerun", selection_mode="single-row", key="idx_table",
-    )
-    rows = event.selection.rows if event and event.selection else []
-    if rows:
-        r = view.iloc[rows[0]]
-        st.divider()
-        st.markdown(f"### {r['data_type']} in `{r['file']}`  ·  _{r['surface']}_")
-        dl, dr = st.columns([3, 2])
-        with dl:
-            pre = carrier_pre(r["file"], [str(r["value"])])
-            if pre:
-                st.markdown(pre, unsafe_allow_html=True)
-            else:
-                st.info(f"(carrier file {r['file']} not found)")
-        with dr:
-            st.markdown(item_card(r), unsafe_allow_html=True)
-    else:
-        st.caption("⬆️ Click a row to highlight that value inside its carrier.")
 
 
 def render_research():
@@ -441,73 +370,108 @@ def _run_detector_ui(nf, tfile, tvalue, tdtype):
             st.caption("No findings returned for the selected detector(s) on this carrier.")
 
 
-def render_detector_results():
+def render_findings():
+    """One workspace: every planted item with its detector status, filters, and a
+    row-select detail (carrier in context + talking point + detector result + run)."""
     try:
         import nf_playground as nf
     except Exception:
         nf = None
     rp = SESSION_DIR / "detector_results.json"
     R = json.loads(rp.read_text()) if rp.exists() else None
+    det = {}
+    if R:
+        for it in R["items"]:
+            det[(it["file"], it["location"], str(it["value"]))] = it
 
-    st.caption("Live Nightfall playground detection over the generated data — baked at generation "
-               "time by `scan.py`. Select a row to run a detector against that data point.")
-    target = None   # (file, value, data_type)
+    def item_of(r):
+        return det.get((r["file"], r["location"], str(r["value"])))
+
+    def status_of(r):
+        it = item_of(r)
+        return it["status"] if it else None
+
+    # ---- report-card summary (if scanned) ----
     if R:
         s = R["summary"]
         c = st.columns(6)
         c[0].metric("✅ Detected", s["detected"])
-        c[1].metric("❌ Missed", s["missed"], help="planted true positives the relevant detector did not catch (recall gap)")
+        c[1].metric("❌ Missed", s["missed"], help="planted true positives the relevant detector missed (recall gap)")
         c[2].metric("🟥 Fired on FP", s["false_positive"], help="near-misses the detector wrongly flagged (precision miss)")
         c[3].metric("🟢 Quiet on FP", s["correctly_quiet"], help="near-misses correctly ignored")
         c[4].metric("⬜ Not integrated", s["not_integrated"])
         rec, prec = s.get("recall_pct"), s.get("precision_quiet_pct")
         c[5].metric("Recall", f"{rec}%" if rec is not None else "—",
                     help=f"precision on near-misses: {prec}%" if prec is not None else None)
-
-        items = R["items"]
-        opts = ["(all)"] + sorted({it["status"] for it in items})
-        pick = st.selectbox("Filter by status", opts, key="det_status_filter")
-        filt = items if pick == "(all)" else [it for it in items if it["status"] == pick]
-        view = pd.DataFrame([{
-            "status": DET_BADGE.get(it["status"], it["status"]),
-            "data_type": it["data_type"], "detector": it["detector"] or "—",
-            "conf": it["confidence"] or "", "challenge": it["detection_challenge"],
-            "file": it["file"], "value": str(it["value"])[:40],
-        } for it in filt])
-        st.caption("↓ click a row to target it for a manual scan")
-        event = st.dataframe(view, width="stretch", hide_index=True,
-                             on_select="rerun", selection_mode="single-row", key="det_table")
-        rows = event.selection.rows if event and event.selection else []
-        if rows:
-            it = filt[rows[0]]
-            target = (it["file"], it["value"], it["data_type"])
-        st.caption(f"scanned {R.get('scanned_at','')} · min confidence {R.get('min_confidence')} · {R.get('endpoint')}")
-        if R.get("errors"):
-            st.warning("scan errors: " + "; ".join(R["errors"]))
     else:
-        st.info("No `detector_results.json` yet — run `scripts/scan.py --dir <session>` after generation "
-                "to bake the report card. You can still run detectors manually below.")
+        st.info("No detector report card yet — run `scripts/scan.py --dir <session>` to add detector "
+                "status. Planted items still show below; you can also run a detector manually on any row.")
 
-    st.divider()
-    st.markdown("### Run a detector manually")
-    if nf is None:
-        st.warning("Detector integration isn't bundled in this build (no `nf_playground`/`detectors.json`).")
+    # ---- filters: status · category · challenge · carrier file ----
+    for key, col in [(vc.K_FCAT, "category"), (vc.K_FCHAL, "detection_challenge")]:
+        opts = sorted(df[col].unique())
+        ss[key] = [v for v in ss.get(key, []) if v in opts]
+    statuses = sorted({status_of(r) or "not scanned" for _, r in df.iterrows()})
+    fc = st.columns(4)
+    fstatus = fc[0].selectbox("Status", ["(all)"] + statuses, key="find_status")
+    fc[1].multiselect("Category", sorted(df["category"].unique()), key=vc.K_FCAT)
+    fc[2].multiselect("Challenge", sorted(df["detection_challenge"].unique()), key=vc.K_FCHAL)
+    ffile = fc[3].selectbox("Carrier file", ["(all)"] + sorted(df["file"].unique()), key="find_file")
+
+    frows = []
+    for _, r in df.iterrows():
+        if fstatus != "(all)" and (status_of(r) or "not scanned") != fstatus:
+            continue
+        if ss[vc.K_FCAT] and r["category"] not in ss[vc.K_FCAT]:
+            continue
+        if ss[vc.K_FCHAL] and r["detection_challenge"] not in ss[vc.K_FCHAL]:
+            continue
+        if ffile != "(all)" and r["file"] != ffile:
+            continue
+        frows.append(r)
+
+    table = pd.DataFrame([{
+        "status": DET_BADGE.get(status_of(r), status_of(r)) if status_of(r) else "—",
+        "file": r["file"], "category": r["category"], "data_type": r["data_type"],
+        "value": str(r["value"])[:40], "challenge": r["detection_challenge"],
+        "detector": (item_of(r) or {}).get("detector") or "—",
+        "conf": (item_of(r) or {}).get("confidence") or "",
+    } for r in frows])
+    st.caption(f"{len(frows)} of {len(df)} planted items — click a row to inspect it in context.")
+    event = st.dataframe(table, width="stretch", hide_index=True,
+                         on_select="rerun", selection_mode="single-row", key="findings_table")
+    rows = event.selection.rows if event and event.selection else []
+    if not rows:
+        st.caption("👆 select a row to see the carrier in context, the talking point, the detector "
+                   "result, and to run a detector manually.")
         return
 
-    if R:
-        if target is None:
-            st.info("👆 Select a row in the table above to run a detector against that data point.")
-            return
-        tfile, tvalue, tdtype = target
-        st.markdown(f"**Selected:** `{tfile}` · {tdtype} · `{html_safe(str(tvalue)[:48])}`")
-    else:
-        # fallback (no report card baked): explicit data-point picker
-        labels = [f"{r['file']} · {r['data_type']} · {str(r['value'])[:28]}" for _, r in df.iterrows()]
-        di = st.selectbox("Data point", range(len(df)), format_func=lambda i: labels[i], key="det_dp")
-        row = df.iloc[di]
-        tfile, tvalue, tdtype = row["file"], row["value"], row["data_type"]
-
-    _run_detector_ui(nf, tfile, tvalue, tdtype)
+    r = frows[rows[0]]
+    st.divider()
+    st.markdown(f"### {r['data_type']} in `{r['file']}`  ·  _{r['surface']}_")
+    left, right = st.columns([3, 2])
+    with left:
+        st.markdown("**Carrier in context** — all planted values highlighted")
+        pre = carrier_pre(r["file"], df[df["file"] == r["file"]]["value"].tolist())
+        if pre:
+            st.markdown(pre, unsafe_allow_html=True)
+        else:
+            st.info(f"(carrier file {r['file']} not found)")
+    with right:
+        st.markdown(item_card(r), unsafe_allow_html=True)
+        it = item_of(r)
+        if it:
+            line = f"**Detector:** {DET_BADGE.get(it['status'], it['status'])}"
+            if it.get("detector"):
+                line += f" · `{it['detector']}`"
+            if it.get("confidence"):
+                line += f" · {it['confidence']}"
+            st.markdown(line)
+        st.markdown("**Run a detector**")
+        if nf is None:
+            st.warning("Detector integration not bundled in this build.")
+        else:
+            _run_detector_ui(nf, r["file"], r["value"], r["data_type"])
 
 
 # ---- header + copilot-drivable view nav ------------------------------------
@@ -523,7 +487,6 @@ st.radio("View", vc.VIEWS, key=vc.K_VIEW, horizontal=True,
          format_func=VIEW_ICON.get, label_visibility="collapsed")
 st.divider()
 
-RENDERERS = {"Demo overview": render_overview, "Leaks in context": render_leaks,
-             "Coverage & diversity": render_coverage, "Planted index": render_index,
-             "Research & decisions": render_research, "Detector results": render_detector_results}
+RENDERERS = {"Demo overview": render_overview, "Coverage & diversity": render_coverage,
+             "Findings": render_findings, "Research & decisions": render_research}
 _ = RENDERERS.get(ss[vc.K_VIEW], render_overview)()
