@@ -69,8 +69,6 @@ CHAL_LABEL = {"straightforward": "🎯 straightforward", "fp_near_miss": "🟡 F
               "fn_evasive": "🫥 FN evasive"}
 CHAL_COLOR = {"straightforward": "#e8590c", "fp_near_miss": "#f5c518", "fn_evasive": "#1c7ed6"}
 CAT_COLOR = {"secret": "#e03131", "confidential": "#9c36b5", "PII": "#1971c2", "financial": "#2f9e44"}
-VIEW_ICON = {"Demo overview": "📖 Demo overview", "Coverage & diversity": "🌈 Coverage & diversity",
-             "Findings": "🔍 Findings", "Research & decisions": "🔬 Research & decisions"}
 DET_BADGE = {"detected": "✅ detected", "missed": "❌ missed", "false_positive": "🟥 fired (FP)",
              "correctly_quiet": "🟢 quiet", "not_integrated": "⬜ not integrated", "scan_error": "⚠️ error"}
 CONF_COLOR = {"high": "#2f9e44", "medium": "#f08c00", "low": "#e8590c"}
@@ -484,7 +482,7 @@ if cfg.get("scale"):
 st.caption(meta)
 
 st.radio("View", vc.VIEWS, key=vc.K_VIEW, horizontal=True,
-         format_func=VIEW_ICON.get, label_visibility="collapsed")
+         format_func=vc.VIEW_ICON.get, label_visibility="collapsed")
 st.divider()
 
 RENDERERS = {"Demo overview": render_overview, "Coverage & diversity": render_coverage,
