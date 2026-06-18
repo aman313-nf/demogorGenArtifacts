@@ -1,0 +1,24 @@
+{
+  "view": "in-product prospect search results (normal usage)",
+  "results": [
+    {
+      "name": "Mei Park",
+      "work_email": "mpark@northwind.io",
+      "work_phone": "(319) 467-3925",
+      "title": "VP"
+    },
+    {
+      "name": "Lucas Eriksson",
+      "work_email": "leriksson@northwind.io",
+      "work_phone": "(795) 471-1626",
+      "title": "VP"
+    },
+    {
+      "name": "Hassan Nguyen",
+      "work_email": "hnguyen@northwind.io",
+      "work_phone": "(312) 810-8119",
+      "title": "VP"
+    }
+  ],
+  "note_field": "reached out to Mei Fischer; their personal cell is (647) 820-9379, personal email mei.personal@gmail.com \u2014 do not log"
+}

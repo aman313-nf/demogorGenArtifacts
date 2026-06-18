@@ -1,0 +1,6 @@
+[ci] build d669cbee3772a077021721a278f64f7fd633dbdd started
++ export AWS_SECRET_ACCESS_KEY=UCr_lgotu2iXW7GboIRoL3u6aHwnMztVuaP-coUN
+[ci] writing contact-db url (multiline):
+postgres://svc_pdp4k8:ffUF0eWIXi
+iQE8Jk@db-qh3m.internal:5432/prod
+[ci] done

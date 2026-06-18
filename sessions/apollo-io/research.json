@@ -1,0 +1,31 @@
+{
+  "company": "Apollo.io",
+  "researched_at": "2026-06-17",
+  "narrative": "For a company whose product IS a 275M-contact PII database, DLP value isn't 'flag every email' — it's bulk-exfil detection + precision. Open on a bulk contact-DB export to a personal Drive (their 2018 breach in miniature), then the infra secret that would hand over the whole database; then the precision inversion (stay quiet on routine business-contact product data, catch a genuine personal-mobile leak); round out with ingested customer-CRM custody and the HR layer.",
+  "findings": [
+    {"topic": "Business model", "finding": "AI-native B2B sales-intelligence + engagement platform (contact database + sequences + dialer + pipeline). Founded 2015, ~1,604 employees, ~16,000 customer teams.", "source": "https://www.uplead.com/what-is-apollo-io/", "confidence": "high"},
+    {"topic": "Product = bulk PII", "finding": "Core asset is a database of 230–275M+ B2B contacts across ~73M accounts, 65+ data points each (name, work email, phone, title, company), ~97% email accuracy. Their deliverable is personal contact data at scale.", "source": "https://www.apollo.io/product/b2b-data", "confidence": "high"},
+    {"topic": "2018 breach", "finding": "A 2018 breach exposed ~125.9M unique emails / 200M contact records (name, email, phone, company, title) straight from the prospect database — the canonical 'bulk contact-DB exfil' nightmare.", "source": "https://techcrunch.com/2018/10/01/apollo-contacts-data-breach/", "confidence": "high"},
+    {"topic": "Regulatory exposure", "finding": "GDPR & CCPA are central — Apollo operates as both Data Processor and Controller, offers CCPA opt-out of sale/sharing, and faced GDPR scrutiny after the breach.", "source": "https://securityaffairs.com/76878/data-breach/apollo-data-breach.html", "confidence": "high"},
+    {"topic": "Data flows / dogfooding", "finding": "Contact data flows out by design — CSV exports, API pulls, CRM (Salesforce/HubSpot) sync, sequences, dialer; Apollo's own SDRs/AEs dogfood the product, so reps hold large exports and prospect-filled sequences.", "source": "inference from product surfaces + GTM model", "confidence": "medium"}
+  ],
+  "hypotheses": [
+    {"hypothesis": "Bulk contact-DB exfil — a rep or integration dumping a large contact list (emails/phones/names at scale) to CSV/personal drive is the crown-jewel risk; the signal is volume + destination, not one record.", "basis": "Their 2018 breach was exactly this (125.9M emails from the prospect DB); product is bulk PII that exports constantly.", "status": "confirmed"},
+    {"hypothesis": "Legitimate business-contact data (work emails/phones/names in normal product context) must NOT be flagged — over-flagging is unusable alert fatigue; the value is distinguishing product data from a genuine leak.", "basis": "The product IS contact PII; every system is saturated with it by design — the precision inversion.", "status": "confirmed"},
+    {"hypothesis": "Ingested customer CRM data (synced Salesforce/HubSpot) is third-party PII under Apollo's custody; leaking it breaches customer trust.", "basis": "Enrichment/sync pulls customers' CRM data into Apollo.", "status": "confirmed"},
+    {"hypothesis": "Contact-DB / enrichment / platform secrets (DB connection strings, scraper & API keys) are critical — one leaked key = access to the 275M-contact database itself.", "basis": "A data platform of this scale runs on credentialed pipelines + a large API.", "status": "confirmed"}
+  ],
+  "decisions": [
+    {"area": "Emphasis", "choice": "bulk-PII exfil + the precision inversion", "rationale": "Apollo's product is PII, so the differentiated DLP story is bulk-exfil + 'don't flag our product data', not single-record detection.", "drove": "the bulk contact_export carrier + the in-product fp_near_miss carrier as the two lead pieces"},
+    {"area": "Scale", "choice": "standard (~7 carriers)", "rationale": "User selected standard.", "drove": "7 carriers across 6 surfaces, ~2 dozen indexed plants"},
+    {"area": "Surfaces", "choice": "GitHub, CI, Google Drive, Apollo Platform, Salesforce CRM, Slack", "rationale": "Where contact data, secrets, and ingested CRM data actually live; the Apollo product itself is a surface (it holds the business-contact data).", "drove": "one carrier per surface"},
+    {"area": "Personas", "choice": "Data Platform Eng, Platform Eng, SDR/AE (dogfooders), Customer Success, HR", "rationale": "Defining persona is the SDR/AE who lives in the product — protagonist of the export/sequence carriers, not a generic engineer.", "drove": "bulk export + Slack carriers attributed to reps; secrets to data-platform eng; CRM custody to CS"},
+    {"area": "FP near-misses", "choice": "routine business-contact data, internal record IDs, UUID sequence ids, placeholder keys", "rationale": "The work-product inversion: their deliverable looks like the thing to catch, so the precision near-misses ARE ordinary contact data.", "drove": "the in-product results carrier tagged fp_near_miss + ID/UUID/placeholder near-misses"},
+    {"area": "FN evasions", "choice": "personal mobile in Slack prose, spaced/dashed phone, base64/line-split keys, a sensitive record buried in a bulk product file", "rationale": "Recall on the shapes a whitespace-fragile detector misses, plus needle-in-product-data.", "drove": "tagged fn_evasive plants in Slack + CI + the export"}
+  ],
+  "open_questions": [
+    "Exact infra stack (cloud, DB, scraper tooling) assumed — would refine which secret types to plant.",
+    "Whether to model 'personal vs business' PII split more explicitly (consumer emails/mobiles in the DB) — raises GDPR stakes; kept light for now.",
+    "Document carriers (.xlsx/.pdf) not included — text/CSV/JSON only."
+  ]
+}

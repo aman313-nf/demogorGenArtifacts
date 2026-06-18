@@ -1,0 +1,3 @@
+Diego Santos (SDR (dogfoods Apollo)): hot lead won't pick up — got their personal cell off a list, trying 8228 7062 79
+Marcus Lindqvist (Platform Eng): btw the sequence API is 500ing, i tested with the prod url postgres://svc_ngey59:YVkQfsGQONvf08Wp@db-rtoz.internal:5432/prod (don't paste that here again my bad)
+Diego Santos (SDR (dogfoods Apollo)): which sequence? id acf5e81e-7131-4269-b118-e36477097749

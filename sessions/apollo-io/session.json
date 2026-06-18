@@ -1,0 +1,112 @@
+{
+  "session_id": "apollo-io-846eef",
+  "company": "Apollo.io",
+  "created_at": "2026-06-17T16:27:23+00:00",
+  "updated_at": "2026-06-17T16:30:36+00:00",
+  "status": "generated",
+  "profile_summary": "Apollo.io: B2B sales-intelligence platform whose product IS a 275M+ contact PII database. Demo centers on bulk contact-DB exfil (the 2018-breach scenario), the precision inversion (don't flag legitimate business-contact product data), ingested customer-CRM custody, and contact-DB/infra secrets; HR layer underneath.",
+  "config": {
+    "seed": 42,
+    "target_carriers": 7,
+    "surfaces": [
+      "GitHub",
+      "CI",
+      "Google Drive",
+      "Apollo Platform",
+      "Salesforce CRM",
+      "Slack"
+    ],
+    "categories": [
+      "secret",
+      "PII",
+      "financial"
+    ],
+    "challenge_mix": {
+      "straightforward": 0.55,
+      "fp_near_miss": 0.2,
+      "fn_evasive": 0.25
+    },
+    "personas": [
+      {
+        "name": "Priya Nair",
+        "team": "Data Platform Eng"
+      },
+      {
+        "name": "Marcus Lindqvist",
+        "team": "Platform Eng"
+      },
+      {
+        "name": "Diego Santos",
+        "team": "SDR (dogfoods Apollo)"
+      },
+      {
+        "name": "Lena Park",
+        "team": "Account Executive"
+      },
+      {
+        "name": "Aisha Diallo",
+        "team": "Customer Success"
+      },
+      {
+        "name": "Sofia Reyes",
+        "team": "People/HR"
+      }
+    ],
+    "volume": 1.0,
+    "scale": "standard",
+    "emphasis": "bulk_pii_exfil_and_precision",
+    "db_size": "275M contacts / 73M accounts"
+  },
+  "planted_summary": {
+    "total": 26,
+    "by_category": {
+      "secret": 9,
+      "PII": 16,
+      "financial": 1
+    },
+    "by_challenge": {
+      "straightforward": 17,
+      "fp_near_miss": 6,
+      "fn_evasive": 3
+    },
+    "surfaces": [
+      "Apollo Platform",
+      "CI",
+      "GitHub",
+      "Google Drive",
+      "Salesforce CRM",
+      "Slack"
+    ]
+  },
+  "manifest": [
+    "profile.md",
+    "generate.py",
+    "PLANTED_INDEX.csv",
+    "PLANTED_INDEX.md",
+    "dashboard.html",
+    "carriers/apollo_app_results.json",
+    "carriers/ci-build.log",
+    "carriers/contact_export_q1.csv",
+    "carriers/customer_acme_sfdc_sync.csv",
+    "carriers/employee_master.csv",
+    "carriers/enrichment-platform.env",
+    "carriers/sdr_outreach_slack.txt"
+  ],
+  "pending": [],
+  "provenance": {
+    "skill_version": "1.0",
+    "python": "3.14.4",
+    "seed": 42,
+    "generate_py_sha256": "e5f319f22279f37999a1e4f93a4bcedf61d5fd6eff2a2bccc28ecfbf4b824a7a"
+  },
+  "decision_log": [
+    {
+      "ts": "2026-06-17T16:27:23+00:00",
+      "note": "session created"
+    },
+    {
+      "ts": "2026-06-17T16:30:36+00:00",
+      "note": "generated 26 plants/7 carriers (standard); centered on bulk contact-DB exfil, precision inversion, customer-CRM custody, infra secrets; +HR"
+    }
+  ]
+}
